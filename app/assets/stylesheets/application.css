@@ -1,0 +1,47 @@
+/*
+  * This is a manifest file that'll be compiled into application.css, which will include all the files
+  * listed below.
+  *
+  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+  * vendor/assets/stylesheets directory can be referenced here using a relative path.
+  *
+  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+  * files in this directory. Styles in this file should be added after the last require_* statement.
+  * It is generally better to create a new file per style scope.
+  *
+  *= require quick-website-dark.css
+  *= require quick-website.css
+  *= require animate.css 
+  *= require apexcharts.css
+  *= require bootstrap.css
+  *= require bootstrap-grid.css
+  *= require bootstrap-reboot.css
+  *= require bootstrap-tagsinput.css
+  *= require bootstrap-tagsinput-typeahead.css
+  *= require dragula.css
+  *= require basic.css
+  *= require dropzone.css
+  *= require jquery.fancybox.css
+  *= require flatpickr.css
+  *= require ie.css
+  *= require airbnb.css
+  *= require confetti.css
+  *= require dark.css
+  *= require light.css
+  *= require material_blue.css
+  *= require material_green.css
+  *= require material_orange.css
+  *= require material_red.css
+  *= require fullcalendar.css
+  *= require fullcalendar.print.css
+  *= require jquery.scrollbar.css
+  *= require nouislider.css
+  *= require quill.bubble.css
+  *= require quill.core.css
+  *= require quill.snow.css
+  *= require select2.css
+  *= require simplebar.css
+  *= require sweetalert2.css
+  *= require swiper.css
+ */
