@@ -1,78 +1,84 @@
-<section class="slice pt-md-8 pb-0 bg-section-dark">
-        <div data-offset-top="#navbar-main">
-            <div class="container position-relative">
-                <div class="row align-items-center">
-                    <div class="col-12 col-lg-6 pr-lg-5">
-                        <!-- Surtitle -->
-                        <h6 class="text-white">- Build like a Pro</h6>
-                        <!-- Heading -->
-                        <h1 class="display-4 text-white font-weight-bolder mb-4">
-                            A better way <strong class="d-block text-primary font-weight-bold h1">to build websites.</strong>
-                        </h1>
-                        <!-- Text -->
-                        <p class="lead text-white opacity-8">
-                            Build a beautiful, modern website with flexible components and modular pages built from scratch.
-                        </p>
-                        <!-- Buttons -->
-                        <div class="mt-5">
-                            <a href="https://themes.getbootstrap.com/product/quick-website-ui-kit-2/" class="btn btn-primary btn-icon d-none d-lg-inline-block" target="_blank">Puchase Quick</a>
-                            <a href="#" class="btn btn-white btn-icon">
-                                <span class="btn-inner--text">Learn more</span><span class="btn-inner--icon">
-                                    <i data-feather="arrow-right"></i>
-                                </span>
-                            </a>
-                        </div>
-                        <div class="mt-5 mt-lg-5 mt-xl-7">
-                            <h6 class="text-sm text-white opacity-7 mb-3">Compatible with:</h6>
-                            <div class="d-flex">
-                                <div class="mr-3">
-                                    <div class="icon icon-shape icon-white rounded-circle" data-toggle="tooltip" title="" data-original-title="Bootstrap 4.5.3">
-                                        <img alt="Image placeholder" src="https://webpixels.s3.eu-central-1.amazonaws.com/public/icons/bootstrap.svg" style="width:20px">
-                                    </div>
-                                </div>
-                                <div class="mr-3">
-                                    <div class="icon icon-shape icon-white rounded-circle" data-toggle="tooltip" title="" data-original-title="HTML5">
-                                        <img alt="Image placeholder" src="https://webpixels.s3.eu-central-1.amazonaws.com/public/icons/html.svg" style="width:20px">
-                                    </div>
-                                </div>
-                                <div class="mr-3">
-                                    <div class="icon icon-shape icon-white rounded-circle" data-toggle="tooltip" title="" data-original-title="CSS3">
-                                        <img alt="Image placeholder" src="https://webpixels.s3.eu-central-1.amazonaws.com/public/icons/css.svg" style="width:20px">
-                                    </div>
-                                </div>
-                                <div class="mr-3">
-                                    <div class="icon icon-shape icon-white rounded-circle" data-toggle="tooltip" title="" data-original-title="Sass">
-                                        <img alt="Image placeholder" src="https://webpixels.s3.eu-central-1.amazonaws.com/public/icons/sass.svg" style="width:20px">
-                                    </div>
-                                </div>
-                                <div class="mr-3">
-                                    <div class="icon icon-shape icon-white rounded-circle" data-toggle="tooltip" title="" data-original-title="jQuery">
-                                        <img alt="Image placeholder" src="https://webpixels.s3.eu-central-1.amazonaws.com/public/icons/jquery.svg" style="width:20px">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 mt-7 mt-lg-0">
-                        <!-- Card -->
-                        <div class="position-relative left-8 left-lg-0">
-                            <figure>
-                                <%= image_tag "theme/light/screen-desktop-1.jpg" , class: "img-fluid mw-lg-120 rounded-top shadow-lg zindex-100"%>
-                            </figure>
-                        </div>
-                        <!-- Card -->
-                        <figure class="col-7 col-md-6 col-lg-5 px-0 position-absolute bottom-0 left-4 left-lg-n5 z-index-101 overflow-hidden" style="height: 420px;">
-                            <%= image_tag "theme/light/screen-phone-3.jpg" , class: "img-fluid mw-lg-120 rounded-top shadow-lg zindex-100"%>
-                        </figure>
-                    </div>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-cookies" data-backdrop="false" aria-labelledby="modal-cookies" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-aside left-4 right-4 bottom-4">
+            <div class="modal-content bg-dark-dark">
+                <div class="modal-body">
+                    <!-- Text -->
+                    <p class="text-sm text-white mb-3">
+                        We use cookies so that our themes work for you. By using our website, you agree to our use of cookies.
+                    </p>
+                    <!-- Buttons -->
+                    <a href="../../pages/utility/terms.html" class="btn btn-sm btn-white" target="_blank">Learn more</a>
+                    <button type="button" class="btn btn-sm btn-primary mr-2" data-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
-        <!-- SVG separator -->
-        <div class="shape-container shape-line shape-position-bottom zindex-102">
-            <svg width="2560px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" viewBox="0 0 2560 100" style="enable-background:new 0 0 2560 100;" xml:space="preserve" class="">
-                <polygon points="2560 0 2560 100 0 100"></polygon>
-            </svg>
+    </div>
+    <!-- Main content -->
+    <section>
+        <div class="container d-flex flex-column">
+            <div class="row align-items-center justify-content-center min-vh-100">
+                <div class="col-md-6 col-lg-5 col-xl-4 py-6 py-md-0">
+                    <div>
+                        <div class="mb-5 text-center">
+                            <h6 class="h3 mb-1">Login</h6>
+                            <p class="text-muted mb-0">Sign in to your account to continue.</p>
+                        </div>
+                        <span class="clearfix"></span>
+                        <form>
+                            <div class="form-group">
+                                <label class="form-control-label">Email address</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fe fe-user"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" id="input-email" placeholder="name@example.com">
+                                </div>
+                            </div>
+                            <div class="form-group mb-0">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <label class="form-control-label">Password</label>
+                                    </div>
+                                    <div class="mb-2">
+                                        <a href="#" class="small text-muted text-underline--dashed border-primary" data-toggle="password-text" data-target="#input-password">Show password</a>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fe fe-key"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" id="input-password" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <button type="button" class="btn btn-block btn-primary">Sign in</button>
+                            </div>
+                        </form>
+                        <div class="py-3 text-center">
+                            <span class="text-xs text-uppercase">or</span>
+                        </div>
+                        <!-- Alternative login -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="#" class="btn btn-block btn-neutral btn-icon mb-3 mb-sm-0">
+                                    <span class="btn-inner--icon"><%= image_tag "icons/brands/github.svg", alt: "Image placeholder" %></span>
+                                    <span class="btn-inner--text">Github</span>
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="#" class="btn btn-block btn-neutral btn-icon">
+                                    <span class="btn-inner--icon"><%= image_tag "icons/brands/google.svg", alt: "Image placeholder" %></span>
+                                    <span class="btn-inner--text">Google</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Links -->
+                        <div class="mt-4 text-center"><small>Not registered?</small>
+                            <a href="register-basic.html" class="small font-weight-bold">Create account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <h1 style="display: flex; justify-content: center; margin-bottom: 50px">TEEEEEEEEEEEEEEEEST</h1>
@@ -98,7 +104,7 @@
                             <div class="col-lg-5 text-lg-right mt-4 mt-lg-0">
                                 <a href="docs/index.html" class="btn btn-white btn-icon my-2" target="_blank">
                                     <span class="btn-inner--icon">
-                                        <i data-feather="book" class="text-primary"></i>
+                                        <i class="fe fe-heart text-primary"></i>
                                     </span>
                                     <span class="btn-inner--text">Documentation</span>
                                 </a>

@@ -10,7 +10,42 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require bootstrap.js
+//= require bootstrap.bundle.js
+//= require svg-injector.js
+//= require isotope.pkgd.js
+//= require dropzone.js
 //= require rails-ujs
 //= require activestorage
+//= require autosize.js
+//= require cookies.js
+//= require copy-type.js
+//= require countdown.js
+//= require counter.js
+//= require datepicker.js
+//= require demo.js
+//= require dropdown.js
+//= require forms.js
+//= require google-maps-custom.js
+//= require google-maps.js
+//= require highlight.js
+//= require layout.js
+//= require masonry.js
+//= require navbar-sticky.js
+//= require notify.js
+//= require password.js
+//= require popover.js
+//= require pricing.js
+//= require progressbar.js
+//= require scroll-to.js
+//= require select.js
+//= require sticky.js
+//= require style.js
+//= require tags.js
+//= require tasks.js
+//= require tooltip.js
+//= require typed.js
 //= require quick-website.js
-
+//= require orders.js
+//= require in-view.min.js

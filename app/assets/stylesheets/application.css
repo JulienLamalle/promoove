@@ -10,8 +10,6 @@
   * files in this directory. Styles in this file should be added after the last require_* statement.
   * It is generally better to create a new file per style scope.
   *
-  *= require quick-website-dark.css
-  *= require quick-website.css
   *= require animate.css 
   *= require apexcharts.css
   *= require bootstrap.css
@@ -19,6 +17,7 @@
   *= require bootstrap-reboot.css
   *= require bootstrap-tagsinput.css
   *= require bootstrap-tagsinput-typeahead.css
+  *= require feathericon
   *= require dragula.css
   *= require basic.css
   *= require dropzone.css
@@ -44,4 +43,5 @@
   *= require simplebar.css
   *= require sweetalert2.css
   *= require swiper.css
+  *= require quick-website.css
  */

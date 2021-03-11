@@ -42,6 +42,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rename'
+  gem 'rails-erd'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
   gem "rack-livereload"
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -65,10 +67,9 @@ gem 'pry'
 gem 'activerecord-reset-pk-sequence'
 gem 'table_print'
 gem 'faker'
+gem 'bootstrap'
 gem 'time_difference'
 gem 'rspec-rails'
 gem 'jquery-rails'
 gem 'dotenv-rails'
-# rails g rename:into your_new_app_name
-gem 'rename', group: :development
-gem 'rails-erd', group: :development
+gem 'feathericon-rails'
