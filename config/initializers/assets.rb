@@ -13,6 +13,7 @@ Rails.application.config.assets.paths += [
 Rails.application.config.assets.paths += [
   Rails.root.join('vendor', 'assets', 'stylesheets').to_s
 ]
+Rails.application.config.assets.precompile += %w( toast.js )
 
 
 # Precompile additional assets.
