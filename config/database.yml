@@ -82,4 +82,4 @@ production:
   <<: *default
   database: promoove_production
   username: promoove
-  password: <%= ENV['PROMOOVE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['PROMOOVE_DATABASE_PASSWORD'] %> 
