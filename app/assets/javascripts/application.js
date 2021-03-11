@@ -13,7 +13,7 @@
 //= require jquery
 //= require bootstrap.js
 //= require bootstrap.bundle.js
-//= require svg-injector.js
+//= require svg-injector.min.js
 //= require isotope.pkgd.js
 //= require dropzone.js
 //= require rails-ujs
