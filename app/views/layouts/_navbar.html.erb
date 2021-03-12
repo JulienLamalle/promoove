@@ -1,0 +1,22 @@
+<header class="" id="header-main">
+  <nav class="navbar navbar-main navbar-expand-lg shadow navbar-light" id="navbar-main">
+    <div class="container">
+      <button class="navbar-toggler order-lg-2 ml-n3 ml-lg-0" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Brand -->
+      <%= link_to root_path, class: "navbar-brand order-lg-1" do %>
+        <%= image_tag 'logo-promoove.png', id: "navbar-logo", style: "height: 50px; width: 50px" %>
+      <% end %>
+
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse navbar-collapse-overlay order-lg-3" id="navbar-main-collapse">
+        <% if cookies[:theme] == "light" %>
+          <%= link_to "🌛", root_path(theme: "dark"), class: "switch-logo" %>
+        <% else %>
+          <%= link_to "🌞", root_path(theme: "light"), class: "switch-logo" %>
+        <% end %>
+    </nav>
+</header>
+
