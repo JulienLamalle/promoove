@@ -6,10 +6,10 @@
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <% if cookies[:theme] == 'light' %>
-      <%= stylesheet_link_tag 'application' , media: 'all' %>
-      <% else %>
+    <% if cookies[:theme] == 'dark' %>
       <%= stylesheet_link_tag 'application_dark' , media: 'all' %>
+      <% else %>
+      <%= stylesheet_link_tag 'application' , media: 'all' %>
     <% end %>
 
   </head>

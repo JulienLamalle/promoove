@@ -12,10 +12,10 @@
 
       <!-- Collapse -->
       <div class="collapse navbar-collapse navbar-collapse-overlay order-lg-3" id="navbar-main-collapse">
-        <% if cookies[:theme] == "light" %>
-          <%= link_to "🌛", root_path(theme: "dark"), class: "switch-logo" %>
-        <% else %>
+        <% if cookies[:theme] == "dark" %>
           <%= link_to "🌞", root_path(theme: "light"), class: "switch-logo" %>
+        <% else %>
+          <%= link_to "🌛", root_path(theme: "dark"), class: "switch-logo" %>
         <% end %>
     </nav>
 </header>
