@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_13_213652) do
+ActiveRecord::Schema.define(version: 2021_03_14_023302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,12 @@ ActiveRecord::Schema.define(version: 2021_03_13_213652) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "collaborations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "project_id"
@@ -60,6 +66,55 @@ ActiveRecord::Schema.define(version: 2021_03_13_213652) do
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_donations_on_project_id"
     t.index ["user_id"], name: "index_donations_on_user_id"
+  end
+
+  create_table "language_media", force: :cascade do |t|
+    t.string "data_type"
+    t.string "aws_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+    t.bigint "language_media_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["language_media_id"], name: "index_languages_on_language_media_id"
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.string "data_type"
+    t.string "aws_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "project_categories", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_project_categories_on_category_id"
+    t.index ["project_id"], name: "index_project_categories_on_project_id"
+  end
+
+  create_table "project_languages", force: :cascade do |t|
+    t.bigint "language_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["language_id"], name: "index_project_languages_on_language_id"
+    t.index ["project_id"], name: "index_project_languages_on_project_id"
+  end
+
+  create_table "project_media", force: :cascade do |t|
+    t.bigint "media_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["media_id"], name: "index_project_media_on_media_id"
+    t.index ["project_id"], name: "index_project_media_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
