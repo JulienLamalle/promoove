@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :roles, through: :collaborations
   has_many :projects, through: :collaborations
   has_many :donations
+  has_many :project_competition_upvotes
+  has_many :comments
+  has_many :comment_answers
+  has_many :comment_answer_upvotes
+  has_many :comment_upvotes
 end
