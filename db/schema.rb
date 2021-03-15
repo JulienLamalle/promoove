@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_14_023302) do
+ActiveRecord::Schema.define(version: 2021_03_15_131558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,8 +84,15 @@ ActiveRecord::Schema.define(version: 2021_03_14_023302) do
   end
 
   create_table "media", force: :cascade do |t|
-    t.string "data_type"
     t.string "aws_link"
+    t.bigint "media_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["media_type_id"], name: "index_media_on_media_type_id"
+  end
+
+  create_table "media_types", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
