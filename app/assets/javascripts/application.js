@@ -48,3 +48,4 @@
 //= require quick-website.js
 //= require orders.js
 //= require in-view.min.js
+//= require video_player.js

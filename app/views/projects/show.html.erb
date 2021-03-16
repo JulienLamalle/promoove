@@ -1,1 +1,781 @@
-<%= @project.name %>
+<!-- Project -->
+<section class="slice py-5 bg-section-fade">
+    <div class="container">
+
+        <!-- Video Player -->
+        <div id="videoContainer">
+          <div class="overlay">
+              <div class="button"></div>
+          </div>
+          <div id="video">
+              <video src="https://webdevtrick.com/wp-content/uploads/sample-footage.mp4">
+              </video>
+          </div>
+        
+          <div id="controls">
+              <div class="playButton">
+                <div class="playPause"></div>
+              </div>
+        
+              <div class="ProgressContainer">
+                <div class="timer intialTime">
+                    00:00
+                </div>
+                <div class="progressBar">
+                    <div class="progress"></div>
+                </div>
+                <div class="time">
+                    00:00
+                </div>
+                <div class="timer fullTime">
+                    00:00
+                </div>
+              </div>
+        
+              <div class="volume">
+                <div class="icon"></div>
+        
+                <div class="intensityBar">
+                    <div class="intensity"></div>
+                </div>
+              </div>
+        
+              <div class="scale">
+                <div class="icon"></div>
+              </div>
+          </div>
+        
+        </div>
+
+        <!-- Carousel -->
+        <!---->
+        <div class="col-xl-8 col-lg-12 col-md-12 col-12 mb-4 mb-xl-0">
+          <div class="card rounded-lg">
+            <!-- Card body -->
+            <div class="card-body">
+              <div class="tab-content" id="tabContent">
+                <!-- Tab pane -->
+                <div class="tab-pane fade active show" id="description" role="tabpanel" aria-labelledby="description-tab">
+                  <div class="mb-4">
+                    <h3 class="mb-2">Course Descriptions</h3>
+                    <p>
+                      If you’re learning to program for the first time, or if you’re coming from a different language,
+                      this course, JavaScript: Getting Started, will give you the basics for coding in JavaScript.
+                      First, you'll discover the types of applications that can be built with JavaScript, and the
+                      platforms they’ll run on.
+                    </p>
+                    <p>
+                      Next, you’ll explore the basics of the language, giving plenty of examples. Lastly, you’ll put
+                      your JavaScript knowledge to work and modify a modern, responsive web page. When you’re finished
+                      with this course, you’ll have the skills and knowledge in JavaScript to create simple programs,
+                      create simple web applications, and modify web pages.
+                    </p>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+                  <div class="mb-3">
+                    <!-- Content -->
+                    <h3 class="mb-4">How students rated this courses</h3>
+                    <div class="row align-items-center">
+                      <div class="col-auto text-center">
+                        <h3 class="display-2 font-weight-bold">4.5</h3>
+                        <i class="mdi mdi-star mr-n1 text-warning"></i>
+                        <i class="mdi mdi-star mr-n1 text-warning"></i>
+                        <i class="mdi mdi-star mr-n1 text-warning"></i>
+                        <i class="mdi mdi-star mr-n1 text-warning"></i>
+                        <i class="mdi mdi-star mr-n1-half text-warning"></i>
+                        <p class="mb-0 font-size-xs">(Based on 27 reviews)</p>
+                      </div>
+                      <!-- Progress bar -->
+                      <div class="col pt-3 order-3 order-md-2">
+                        <div class="progress mb-3" style="height: 6px;">
+                          <div class="progress-bar bg-warning" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="progress mb-3" style="height: 6px;">
+                          <div class="progress-bar bg-warning" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="progress mb-3" style="height: 6px;">
+                          <div class="progress-bar bg-warning" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="progress mb-3" style="height: 6px;">
+                          <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="progress mb-0" style="height: 6px;">
+                          <div class="progress-bar bg-warning" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                      <!-- Rating -->
+                      <div class="col-md-auto col-6 order-2 order-md-3">
+                        <div>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <span class="ml-1">53%</span>
+                        </div>
+                        <div>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-light"></i>
+                          <span class="ml-1">36%</span>
+                        </div>
+                        <div>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-light"></i>
+                          <i class="mdi mdi-star mr-n1 text-light"></i>
+                          <span class="ml-1">9%</span>
+                        </div>
+                        <div>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-light"></i>
+                          <i class="mdi mdi-star mr-n1 text-light"></i>
+                          <i class="mdi mdi-star mr-n1 text-light"></i>
+                          <span class="ml-1">3%</span>
+                        </div>
+                        <div>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-light"></i>
+                          <i class="mdi mdi-star mr-n1 text-light"></i>
+                          <i class="mdi mdi-star mr-n1 text-light"></i>
+                          <i class="mdi mdi-star mr-n1 text-light"></i>
+                          <span class="ml-1">2%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr class="my-5">
+                  <div class="mb-3">
+                    <!-- Review -->
+                    <div class="d-lg-flex align-items-center justify-content-between mb-5">
+                      <div class="mb-3 mb-lg-0">
+                        <h3 class="mb-0">Reviews</h3>
+                      </div>
+                      <div>
+                        <!-- Search -->
+                        <form class="form-inline">
+                          <div class="d-flex align-items-center mr-2">
+                            <span class="position-absolute pl-3">
+                              <i class="fe fe-search"></i>
+                            </span>
+                            <input type="search" class="form-control pl-6" placeholder="Search Review">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="media border-bottom pb-4 mb-4">
+                      <!-- Media -->
+                      <img src="../assets/images/avatar/avatar-2.jpg" alt="" class="rounded-circle avatar-lg">
+                      <!-- Content -->
+                      <div class="media-body ml-3">
+                        <h4 class="mb-1">
+                          Max Hawkins
+                          <span class="ml-1 font-size-xs text-muted">2 Days ago</span>
+                        </h4>
+                        <div class="font-size-xs mb-2">
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                        </div>
+                        <p>Lectures were at a really good pace and I never felt lost. The instructor was well informed
+                          and allowed me to learn and navigate Figma easily.</p>
+                        <div class="d-lg-flex">
+                          <p class="mb-0">Was this review helpful?</p>
+                          <a href="#!" class="btn btn-xs btn-primary ml-lg-3">Yes</a>
+                          <a href="#!" class="btn btn-xs btn-outline-white ml-1">No</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="media border-bottom pb-4 mb-4">
+                      <!-- Media -->
+                      <img src="../assets/images/avatar/avatar-3.jpg" alt="" class="rounded-circle avatar-lg">
+                      <!-- Content -->
+                      <div class="media-body ml-3">
+                        <h4 class="mb-1">Arthur Williamson <span class="ml-1 font-size-xs text-muted">3 Days ago</span>
+                        </h4>
+                        <div class="font-size-xs mb-2">
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                        </div>
+                        <p>Its pretty good.Just a reminder that there are also students with Windows, meaning Figma its
+                          a bit different of yours. Thank you!</p>
+                        <div class="d-lg-flex">
+                          <p class="mb-0">Was this review helpful?</p>
+                          <a href="#!" class="btn btn-xs btn-primary ml-lg-3">Yes</a>
+                          <a href="#!" class="btn btn-xs btn-outline-white ml-1">No</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="media border-bottom pb-4 mb-4">
+                      <!-- Media -->
+                      <img src="../assets/images/avatar/avatar-4.jpg" alt="" class="rounded-circle avatar-lg">
+                      <!-- Content -->
+                      <div class="media-body ml-3">
+                        <h4 class="mb-1">Claire Jones <span class="ml-1 font-size-xs text-muted">4 Days ago</span></h4>
+                        <div class="font-size-xs mb-2">
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                        </div>
+                        <p>
+                          Great course for learning Figma, the only bad detail would be that some icons are not included
+                          in the assets. But 90% of the icons needed are included, and the voice of the instructor
+                          was very clear and easy to understood.
+                        </p>
+                        <div class="d-lg-flex">
+                          <p class="mb-0">Was this review helpful?</p>
+                          <a href="#!" class="btn btn-xs btn-primary ml-lg-3">Yes</a>
+                          <a href="#!" class="btn btn-xs btn-outline-white ml-1">No</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="media">
+                      <!-- Media -->
+                      <img src="../assets/images/avatar/avatar-5.jpg" alt="" class="rounded-circle avatar-lg">
+                      <!-- Content -->
+                      <div class="media-body ml-3">
+                        <h4 class="mb-1">
+                          Bessie Pena
+                          <span class="ml-1 font-size-xs text-muted">5 Days ago</span>
+                        </h4>
+                        <div class="font-size-xs mb-2">
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                          <i class="mdi mdi-star mr-n1 text-warning"></i>
+                        </div>
+                        <p>
+                          I have really enjoyed this class and learned a lot, found it very inspiring and helpful, thank
+                          you!
+                          <i class="em em-heart_eyes ml-2 font-size-xs"></i>
+                        </p>
+                        <div class="d-lg-flex">
+                          <p class="mb-0">Was this review helpful?</p>
+                          <a href="#!" class="btn btn-xs btn-primary ml-lg-3">Yes</a>
+                          <a href="#!" class="btn btn-xs btn-outline-white ml-1">No</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="transcript" role="tabpanel" aria-labelledby="transcript-tab">
+                  <!-- Description -->
+                  <div>
+                    <h3 class="mb-3">Transcript from the "Introduction" Lesson</h3>
+                    <div class="mb-4">
+                      <h4>
+                        Course Overview
+                        <a href="#!" class="ml-2 h4 text-primary">[00:00:00]</a>
+                      </h4>
+                      <p class="mb-0">
+                        My name is John Deo and I work as human duct tape at Gatsby, that means that I do a lot of
+                        different things. Everything from dev roll to writing content to writing code. And I used to
+                        work
+                        as an architect at IBM. I live in Portland, Oregon.
+                      </p>
+                    </div>
+                    <div class="mb-4">
+                      <h4>
+                        Introduction
+                        <a href="#!" class="ml-2 h4 text-primary">[00:00:16]</a>
+                      </h4>
+                      <p>
+                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only gonna use the pieces of it that
+                        we need to build in Gatsby. We're not gonna be doing a deep dive into what GraphQL is or
+                        the language specifics. We're also gonna get into MDX. MDX is a way to write React components in
+                        your markdown.
+                      </p>
+                    </div>
+                    <div class="mb-4">
+                      <h4>
+                        Why Take This Course?
+                        <a href="#!" class="ml-2 h4 text-primary">[00:00:37]</a>
+                      </h4>
+                      <p>
+                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only gonna use the pieces of it that
+                        we need to build in Gatsby. We're not gonna be doing a deep dive into what GraphQL is or
+                        the language specifics. We're also gonna get into MDX. MDX is a way to write React components in
+                        your markdown.
+                      </p>
+                    </div>
+                    <div class="mb-4">
+                      <h4>
+                        A Look at the Demo Application
+                        <a href="#!" class="ml-2 h4 text-primary">[00:00:54]</a>
+                      </h4>
+                      <p>
+                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only gonna use the pieces of it that
+                        we need to build in Gatsby. We're not gonna be doing a deep dive into what GraphQL is or
+                        the language specifics. We're also gonna get into MDX. MDX is a way to write React components in
+                        your markdown.
+                      </p>
+                      <p>
+                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only gonna use the pieces of it that
+                        we need to build in Gatsby. We're not gonna be doing a deep dive into what GraphQL is or
+                        the language specifics. We're also gonna get into MDX. MDX is a way to write React components in
+                        your markdown.
+                      </p>
+                    </div>
+                    <div class="mb-4">
+                      <h4>
+                        Summary
+                        <a href="#!" class="ml-2 h4 text-primary">[00:01:31]</a>
+                      </h4>
+                      <p>
+                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only gonna use the pieces of it that
+                        we need to build in Gatsby. We're not gonna be doing a deep dive into what GraphQL is or
+                        the language specifics. We're also gonna get into MDX. MDX is a way to write React components in
+                        your markdown.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="faq" role="tabpanel" aria-labelledby="faq-tab">
+                  <!-- FAQ -->
+                  <div>
+                    <h3 class="mb-3">Course - Frequently Asked Questions</h3>
+                    <div class="mb-4">
+                      <h4>How this course help me to design layout?</h4>
+                      <p>
+                        My name is Jason Woo and I work as human duct tape at Gatsby, that means that I do a lot of
+                        different things. Everything from dev roll to writing content to writing code. And I used to
+                        work as an architect at IBM. I live in Portland, Oregon.
+                      </p>
+                    </div>
+                    <div class="mb-4">
+                      <h4>
+                        What is important of this course?
+                      </h4>
+                      <p>
+                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only gonna use the pieces of it that
+                        we need to build in Gatsby. We're not gonna be doing a deep dive into what GraphQL is or
+                        the language specifics. We're also gonna get into MDX. MDX is a way to write React components in
+                        your markdown.
+                      </p>
+                    </div>
+                    <div class="mb-4">
+                      <h4>Why Take This Course?</h4>
+                      <p>
+                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only gonna use the pieces of it that
+                        we need to build in Gatsby. We're not gonna be doing a deep dive into what GraphQL is or
+                        the language specifics. We're also gonna get into MDX. MDX is a way to write React components in
+                        your markdown.
+                      </p>
+                    </div>
+                    <div class="mb-4">
+                      <h4>
+                        Is able to create application after this course?
+                      </h4>
+                      <p>
+                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only gonna use the pieces of it that
+                        we need to build in Gatsby. We're not gonna be doing a deep dive into what GraphQL is or
+                        the language specifics. We're also gonna get into MDX. MDX is a way to write React components in
+                        your markdown.
+                      </p>
+                      <p>
+                        We'll dive into GraphQL, the fundamentals of GraphQL. We're only gonna use the pieces of it that
+                        we need to build in Gatsby. We're not gonna be doing a deep dive into what GraphQL is or
+                        the language specifics. We're also gonna get into MDX. MDX is a way to write React components in
+                        your markdown.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <!-- Stats -->
+        <div class="row mx-n2">
+            <div class="col-lg-3 col-sm-6 px-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <div class="icon icon-shape icon-md bg-primary shadow-primary text-white">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                        </div>
+                        <!-- Title -->
+                        <h5 class="h3 font-weight-bolder mb-1">$25,370.00</h5>
+                        <!-- Subtitle -->
+                        <span class="d-block text-sm text-muted font-weight-bold">
+                            Global Budget
+                            <i data-feather="chevron-up" class="text-success"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 px-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <div class="icon icon-shape icon-md bg-danger shadow-danger text-white">
+                                <i class="fas fa-cash-register"></i>
+                            </div>
+                        </div>
+                        <!-- Title -->
+                        <h5 class="h3 font-weight-bolder mb-1">$5,370.00</h5>
+                        <!-- Subtitle -->
+                        <span class="d-block text-sm text-muted font-weight-bold">
+                            Today's Income
+                            <i data-feather="chevron-down" class="text-danger"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 px-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <div class="icon icon-shape icon-md bg-warning shadow-warning text-white">
+                                <i class="fas fa-shopping-basket"></i>
+                            </div>
+                        </div>
+                        <!-- Title -->
+                        <h5 class="h3 font-weight-bolder mb-1">$2,370.00</h5>
+                        <!-- Subtitle -->
+                        <span class="d-block text-sm text-muted font-weight-bold">
+                            Spendings
+                            <i data-feather="chevron-down" class="text-danger"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 px-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="mb-3">
+                            <div class="icon icon-shape icon-md bg-success shadow-success text-white">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                        </div>
+                        <!-- Title -->
+                        <h5 class="h3 font-weight-bolder mb-1">863</h5>
+                        <!-- Subtitle -->
+                        <span class="d-block text-sm text-muted font-weight-bold">
+                            Today's Orders
+                            <i data-feather="chevron-up" class="text-success"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Chart + Stats -->
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card card-fluid">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <span class="h6">Orders</span>
+                            </div>
+                            <div class="col-auto">
+                                <div class="custom-control custom-radio">
+                                    <input type="checkbox" class="custom-control-input" id="checkChartLegendRefunds" onchange="ApexOrdersChart.toggleSeries(this)" value="Rejected" checked>
+                                    <label class="custom-control-label h6 text-sm lh-200 text-muted" for="checkChartLegendRefunds">Show refunds</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pt-2 pb-0 px-2">
+                        <!-- Chart -->
+                        <div id="apex-orders" data-height="200"></div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <!-- Stats -->
+                        <div class="row mx-md-n2">
+                            <div class="col-md-4 px-md-2">
+                                <div class="card bg-secondary border-0 shadow-none mb-md-0">
+                                    <div class="p-2 d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-shape bg-white text-primary shadow">
+                                                <i class="fas fa-cash-register"></i>
+                                            </div>
+                                        </div>
+                                        <div class="pl-3">
+                                            <h6 class="text-muted text-xs font-weight-light mb-0">Spendings</h6>
+                                            <span class="h6 font-weight-bolder mb-0">$7.500</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 px-md-2">
+                                <div class="card bg-secondary border-0 shadow-none mb-md-0">
+                                    <div class="p-2 d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-shape bg-white text-primary shadow">
+                                                <i class="fas fa-cash-register"></i>
+                                            </div>
+                                        </div>
+                                        <div class="pl-3">
+                                            <h6 class="text-muted text-xs font-weight-light mb-0">Spendings</h6>
+                                            <span class="h6 font-weight-bolder mb-0">$7.500</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 px-md-2">
+                                <div class="card bg-secondary border-0 shadow-none mb-md-0">
+                                    <div class="p-2 d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-shape bg-white text-primary shadow">
+                                                <i class="fas fa-cash-register"></i>
+                                            </div>
+                                        </div>
+                                        <div class="pl-3">
+                                            <h6 class="text-muted text-xs font-weight-light mb-0">Spendings</h6>
+                                            <span class="h6 font-weight-bolder mb-0">$7.500</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <!-- Stats -->
+                <div class="card ">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <span class="h6">Performance</span>
+                            </div>
+                            <div class="col-auto ml-auto text-right">
+                                <span class="h6 text-sm text-muted">3,567.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="">
+                            <div class="progress-circle progress-lg mx-auto" id="progress-performance-1" data-progress="72" data-trailwidth="4" data-text="72%" data-textclass="h3" data-shape="circle" data-color="primary"></div>
+                        </div>
+                        <hr class="my-4" />
+                        <!-- Trend -->
+                        <div class="d-flex align-items-center mb-2">
+                            <div>
+                                <span class="icon icon-shape icon-sm bg-soft-success text-success">
+                                    <i class="fas fa-caret-up"></i>
+                                </span>
+                            </div>
+                            <div class="pl-2">
+                                <span class="text-success text-sm font-weight-bold">+23%</span>
+                            </div>
+                        </div>
+                        <!-- Text -->
+                        <p class="mb-0 text-sm text-muted">
+                            You have a 23% growth in comparison with last month.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Inbox -->
+        <div>
+            <!-- Title -->
+            <h3 class="h4">Inbox</h3>
+            <!-- Inbox entries -->
+            <div class="card mb-3 hover-shadow-lg">
+                <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
+                    <div class="col-auto col-lg-1 d-flex align-items-center px-0 pt-3 pt-lg-0 zindex-100">
+                        <!-- Checkbox -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkInboxItem1">
+                            <label class="custom-control-label" for="chkInboxItem1"></label>
+                        </div>
+                        <!-- Star -->
+                        <div class="custom-rating d-none d-sm-inline-block">
+                            <input type="checkbox" id="chkInboxItemStar1" name="star">
+                            <label class="custom-rating-label" for="chkInboxItemStar1"><span class="sr-only">Star</span></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-8 pl-0 pl-md-2 pt-3 pt-lg-0">
+                        <span class="h6 text-sm">Aaliyah Haworth</span>
+                    </div>
+                    <div class="col col-lg-1 text-right px-0 order-lg-4 pt-3 pt-lg-0">
+                        <span class="text-muted text-sm">Dec 25</span>
+                    </div>
+                    <div class="col-12 col-lg-8 d-flex align-items-center position-static pb-3 py-lg-3 px-0">
+                        <!-- Badge -->
+                        <!-- Subject + Body -->
+                        <div class="col col-lg-11 position-static px-0">
+                            <div class="d-flex flex-wrap flex-lg-nowrap align-items-center">
+                                <div class="col-12 col-lg-auto px-0 position-static">
+                                    <a href="#" class="stretched-link h6 d-block mb-0 lh-140 text-sm font-weight-light">Purpose 2.0 is now released</a>
+                                </div>
+                                <div class="col-12 col-lg pl-0 text-limit text-sm text-muted d-none d-sm-block pl-lg-2">
+                                    Today we are happy to announce Bit's public Beta support for Vue components between different apps.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 hover-shadow-lg">
+                <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
+                    <div class="col-auto col-lg-1 d-flex align-items-center px-0 pt-3 pt-lg-0 zindex-100">
+                        <!-- Checkbox -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkInboxItem2">
+                            <label class="custom-control-label" for="chkInboxItem2"></label>
+                        </div>
+                        <!-- Star -->
+                        <div class="custom-rating d-none d-sm-inline-block">
+                            <input type="checkbox" id="chkInboxItemStar2" name="star" checked>
+                            <label class="custom-rating-label" for="chkInboxItemStar2"><span class="sr-only">Star</span></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-8 pl-0 pl-md-2 pt-3 pt-lg-0">
+                        <span class="h6 text-sm">Mila Bostock</span>
+                    </div>
+                    <div class="col col-lg-1 text-right px-0 order-lg-4 pt-3 pt-lg-0">
+                        <span class="text-muted text-sm">Dec 3</span>
+                    </div>
+                    <div class="col-12 col-lg-8 d-flex align-items-center position-static pb-3 py-lg-3 px-0">
+                        <!-- Badge -->
+                        <!-- Subject + Body -->
+                        <div class="col col-lg-11 position-static px-0">
+                            <div class="d-flex flex-wrap flex-lg-nowrap align-items-center">
+                                <div class="col-12 col-lg-auto px-0 position-static">
+                                    <a href="#" class="stretched-link h6 d-block mb-0 lh-140 text-sm font-weight-light">Unlock your rewards now</a>
+                                </div>
+                                <div class="col-12 col-lg pl-0 text-limit text-sm text-muted d-none d-sm-block pl-lg-2">
+                                    Bit makes it easier than ever to isolate and share Vue components between different projects and apps while keeping changes synced between them
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 hover-shadow-lg">
+                <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
+                    <div class="col-auto col-lg-1 d-flex align-items-center px-0 pt-3 pt-lg-0 zindex-100">
+                        <!-- Checkbox -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkInboxItem3">
+                            <label class="custom-control-label" for="chkInboxItem3"></label>
+                        </div>
+                        <!-- Star -->
+                        <div class="custom-rating d-none d-sm-inline-block">
+                            <input type="checkbox" id="chkInboxItemStar3" name="star" checked>
+                            <label class="custom-rating-label" for="chkInboxItemStar3"><span class="sr-only">Star</span></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-8 pl-0 pl-md-2 pt-3 pt-lg-0">
+                        <span class="h6 text-sm">Caroline Gunn</span>
+                    </div>
+                    <div class="col col-lg-1 text-right px-0 order-lg-4 pt-3 pt-lg-0">
+                        <span class="text-muted text-sm">Nov 29</span>
+                    </div>
+                    <div class="col-12 col-lg-8 d-flex align-items-center position-static pb-3 py-lg-3 px-0">
+                        <!-- Badge -->
+                        <div class="col-auto px-0 d-none d-lg-block">
+                            <span class="badge badge-xs text-xs badge-light mr-2">Orders</span>
+                        </div>
+                        <!-- Subject + Body -->
+                        <div class="col col-lg-11 position-static px-0">
+                            <div class="d-flex flex-wrap flex-lg-nowrap align-items-center">
+                                <div class="col-12 col-lg-auto px-0 position-static">
+                                    <a href="#" class="stretched-link h6 d-block mb-0 lh-140 text-sm">You got a new order for Purpose</a>
+                                </div>
+                                <div class="col-12 col-lg pl-0 text-limit text-sm text-muted d-none d-sm-block pl-lg-2">
+                                    Collect your reusable components to Quick to create your very own developer-first component design system
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 hover-shadow-lg">
+                <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
+                    <div class="col-auto col-lg-1 d-flex align-items-center px-0 pt-3 pt-lg-0 zindex-100">
+                        <!-- Checkbox -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkInboxItem4">
+                            <label class="custom-control-label" for="chkInboxItem4"></label>
+                        </div>
+                        <!-- Star -->
+                        <div class="custom-rating d-none d-sm-inline-block">
+                            <input type="checkbox" id="chkInboxItemStar4" name="star">
+                            <label class="custom-rating-label" for="chkInboxItemStar4"><span class="sr-only">Star</span></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-8 pl-0 pl-md-2 pt-3 pt-lg-0">
+                        <span class="h6 text-sm">Stacey Foster</span>
+                    </div>
+                    <div class="col col-lg-1 text-right px-0 order-lg-4 pt-3 pt-lg-0">
+                        <span class="text-muted text-sm">Nov 23</span>
+                    </div>
+                    <div class="col-12 col-lg-8 d-flex align-items-center position-static pb-3 py-lg-3 px-0">
+                        <!-- Badge -->
+                        <div class="col-auto px-0 d-none d-lg-block">
+                            <span class="badge badge-xs text-xs badge-light mr-2">Projects</span>
+                        </div>
+                        <!-- Subject + Body -->
+                        <div class="col col-lg-11 position-static px-0">
+                            <div class="d-flex flex-wrap flex-lg-nowrap align-items-center">
+                                <div class="col-12 col-lg-auto px-0 position-static">
+                                    <a href="#" class="stretched-link h6 d-block mb-0 lh-140 text-sm font-weight-light">Start over with a new website</a>
+                                </div>
+                                <div class="col-12 col-lg pl-0 text-limit text-sm text-muted d-none d-sm-block pl-lg-2">
+                                    A room without books is like a text without a soul
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 hover-shadow-lg">
+                <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
+                    <div class="col-auto col-lg-1 d-flex align-items-center px-0 pt-3 pt-lg-0 zindex-100">
+                        <!-- Checkbox -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="chkInboxItem5">
+                            <label class="custom-control-label" for="chkInboxItem5"></label>
+                        </div>
+                        <!-- Star -->
+                        <div class="custom-rating d-none d-sm-inline-block">
+                            <input type="checkbox" id="chkInboxItemStar5" name="star">
+                            <label class="custom-rating-label" for="chkInboxItemStar5"><span class="sr-only">Star</span></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-8 pl-0 pl-md-2 pt-3 pt-lg-0">
+                        <span class="h6 text-sm">George Browning</span>
+                    </div>
+                    <div class="col col-lg-1 text-right px-0 order-lg-4 pt-3 pt-lg-0">
+                        <span class="text-muted text-sm">Nov 10</span>
+                    </div>
+                    <div class="col-12 col-lg-8 d-flex align-items-center position-static pb-3 py-lg-3 px-0">
+                        <!-- Badge -->
+                        <!-- Subject + Body -->
+                        <div class="col col-lg-11 position-static px-0">
+                            <div class="d-flex flex-wrap flex-lg-nowrap align-items-center">
+                                <div class="col-12 col-lg-auto px-0 position-static">
+                                    <a href="#" class="stretched-link h6 d-block mb-0 lh-140 text-sm">Start over with a new website</a>
+                                </div>
+                                <div class="col-12 col-lg pl-0 text-limit text-sm text-muted d-none d-sm-block pl-lg-2">
+                                    A room without books is like a text without a soul
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
