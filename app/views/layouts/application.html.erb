@@ -16,7 +16,9 @@
 
   <body>
     <%= javascript_include_tag 'toast' %>
-    <%= render 'layouts/navbar' %>
+    <% unless controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
     <%= render 'layouts/flash' %>
 
     <%= yield %>
