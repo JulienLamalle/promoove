@@ -44,7 +44,6 @@
 //= require tags.js
 //= require tasks.js
 //= require tooltip.js
-//= require typed.js
 //= require quick-website.js
 //= require orders.js
 //= require in-view.min.js
