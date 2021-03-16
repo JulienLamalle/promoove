@@ -56,7 +56,7 @@ badge_type_array = ["gold", "silver", "bronze"]
 10.times do
     user = User.create(
         email: Faker::Internet.email,
-        password: Faker::Internet.password,
+        password: "Azerty",
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
         description: Faker::Books::Dune.quote,
@@ -72,6 +72,13 @@ badge_type_array = ["gold", "silver", "bronze"]
     )
     puts "seeding user #{user.first_name}"
 end
+admin = Admin.create(
+    email: "admin@yopmail.com",
+    password: "Azerty",
+    first_name: "admin",
+    last_name: "ADMIN",
+)
+puts "admin created"
 
 # Projects
 5.times do
