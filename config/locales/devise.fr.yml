@@ -75,10 +75,11 @@ fr:
 
     attributes:
       user:
-        password: "Votre mot de passe"
-        password_confirmation: "La confirmation de mot de passe"
+        terms: Les conditions générales d'utilisations
+        password: "votre mot de passe"
+        password_confirmation: "votre confirmation de mot de passe"
         current_password: "Le mot de passe actuel"
-        email: "Votre adresse mail"
+        email: "votre adresse mail"
       project:
         name: 'Le nom de votre projet'
         pitch: ' la présentation'
@@ -93,7 +94,7 @@ fr:
           branch_code: ' le numéro de guichet'
           bank_code: ' le numéro de la banque'
           key: ' la clé'
-
+      
   date:
     abbr_day_names:
     - dim
