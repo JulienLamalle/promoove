@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :projects
   resources :categories
   resources :terms, only: [:index]
+  resources :users, only: [:show]
 end
