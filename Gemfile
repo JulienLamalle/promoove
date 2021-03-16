@@ -62,7 +62,7 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'pry'
 gem 'activerecord-reset-pk-sequence'
 gem 'table_print'
@@ -75,3 +75,4 @@ gem 'dotenv-rails'
 gem 'feathericon-rails'
 gem 'toastr-rails'
 gem 'friendly_id'
+gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
