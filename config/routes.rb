@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root 'projects#index'
   resources :projects
   resources :categories
+  resources :terms, only: [:index]
+  resources :users, only: [:show]
 end

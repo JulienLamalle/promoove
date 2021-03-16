@@ -1,26 +1,87 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<section>
+  <div class="bg-primary position-absolute h-100 top-0 left-0 zindex-100 col-lg-6 col-xl-6 zindex-100 d-none d-lg-flex flex-column justify-content-end" data-bg-size="cover" data-bg-position="center">
+    <!-- Cover image -->
+    <%= image_tag "backgrounds/login.jpeg",  alt: "image cover", class: "img-as-bg" %>
+    <!-- Overlay text -->
+    <div class="row position-relative zindex-110 p-5">
+      <div class="col-md-8 text-center mx-auto">
+        <span class="badge badge-danger badge-pill">Partager - Créer - Aider</span>
+        <h5 class="h5 text-white mt-3">Les meilleurs projets open-source vous attendent</h5>
+        <p class="text-white opacity-8">
+          Connectez-vous et participez vous aussi à l'open-source
+        </p>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+  <div class="container-fluid d-flex flex-column">
+    <div class="row align-items-center justify-content-center justify-content-lg-end min-vh-100">
+      <div class="col-sm-7 col-lg-6 col-xl-6 py-6 py-md-0">
+        <div class="row justify-content-center">
+          <div class="col-11 col-lg-10 col-xl-6">
+            <div>
+              <div class="mb-5">
+                <h6 class="h3 mb-1">Bon retour parmi nous !</h6>
+                <p class="text-muted mb-0">Connectez-vous pour continuer.</p>
+              </div>
+              <span class="clearfix"></span>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <div class="form-group">
+                  <%= f.label "Votre adresse mail", class:"form-control-label" %>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fe fe-user"></i></span>
+                    </div>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", type: "email", class: "form-control", id:"input-email", placeholder: "votre@email.com" %>
+                  </div>
+                </div>
+                <div class="form-group mb-0">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                      <%= f.label "Votre mot de passe", class: "form-control-label" %>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fe fe-key"></i></span>
+                    </div>
+                    <%= f.password_field :password, autocomplete: "current-password", type: "password", class: "form-control", id: "input-password", placeholder: "Votre mot de passe" %>
+                  </div>
+                </div>
+                <% if devise_mapping.rememberable? %>
+                  <div class="custom-control custom-checkbox mt-3">
+                    <%= f.check_box(:remember_me, class: "custom-control-input", id: "remember-me") %>
+                    <%= f.label "Se souvenir de moi", class: "custom-control-label", for: "remember-me" %>
+                  </div>
+                <% end %>
+                <div class="mt-3 actions">
+                  <%= f.submit "Se connecter", class: "btn btn-block btn-primary" %>
+                </div>
+              <% end %>
+              <div class="py-3 text-center">
+                <span class="text-xs text-uppercase">ou</span>
+              </div>
+              <!-- Alternative login -->
+              <div class="row">
+                <div class="col-sm-12">
+                  <%= link_to user_github_omniauth_authorize_path, method: :post , class: "btn btn-block btn-neutral btn-icon mb-3 mb-sm-0" do %>
+                    <span class="btn-inner--icon"><%= image_tag "svg/social/github.svg",
+                        alt: "Image Github"%></span>
+                    <span class="btn-inner--text">Se connecter avec Github</span>
+                  <% end %>
+                </div>
+              </div>
+              <!-- Links -->
+              <div class="mt-4"><small>Pas encore de compte ?</small>
+                <%= link_to "Créer un compte", new_user_registration_path ,class:"small font-weight-bold"%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<%= link_to "Sign in with Github", user_github_omniauth_authorize_path, method: :post %>
+
+
