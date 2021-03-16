@@ -50,6 +50,7 @@ CommentUpvote.reset_pk_sequence
 media_type = ["text", "image", "videos", "son"]
 category = ["Intelligence Artificielle", "BTP", "Santé", "FinTech", "Sport"]
 languages = ["python", "javascript", "ruby", "C#", "HTML"]
+badge_type_array = ["gold", "silver", "bronze"]
 
 # Users
 10.times do
@@ -172,24 +173,100 @@ puts "languages"
 
 #Project Language
 3.times do
-    project_language = ProjectLanguage.create(project: Project.all.sample, language: Language.all.sample)
+    project_language = ProjectLanguage.create(
+        project: Project.all.sample,
+        language: Language.all.sample
+        )
 end
 puts "project languages"
 
 # Competition
 3.times do
-    competition = Competition.create(name: Faker::Team.state + ' league', duration: 7)
+    competition = Competition.create(
+        name: "#{Faker::Team.state} league",
+        duration: "#{Faker::Number.number(digits: 1)} days"
+        )
 end
 puts "competition"
 
-=begin
-    project_competition = ProjectCompetition.create(project: project, competition: competition, upvote_number: 132)
-    project_competition_upvote = ProjectCompetitionUpvote.create(project_competition: project_competition, user: user )
-    badge_type = BadgeType.create(name: 'Or')
-    badge_media = BadgeMedia.create(aws_link: 'linkdunbadge.com')
-    badge = Badge.create(badge_type: BadgeType.last, badge_media: BadgeMedia.last, project_competition: project_competition)
-    comment = Comment.create(content: "Ceci est un commentaire comme on en fait plus", user: user, project: project)
-    comment_answer = CommentAnswer.create(content: "Ceci est un commentaire d'un commentaire comme on en fait plus", user: user, comment: comment)
-    comment_answer_upvote = CommentAnswerUpvote.create(user: user, comment_answer: comment_answer)
-    comment_upvote = CommentUpvote.create(user: user, comment: comment)
-=end
+# Project Competition
+8.times do
+    project_competition = ProjectCompetition.create(
+        project: Project.all.sample,
+        competition: Competition.all.sample,
+        upvote_number: Faker::Number.number(digits: 2)
+    )
+end
+puts "project competition"
+    
+#Project competition upvote
+75.times do
+    project_competition_upvote = ProjectCompetitionUpvote.create(
+        project_competition: ProjectCompetition.all.sample,
+        user: User.all.sample
+    )
+end
+puts "project competition upvote"
+    
+#Badge type
+i = 0
+badge_type_array.size.times do
+    badge_type = BadgeType.create(name: badge_type_array[i])
+    i += 1
+end
+puts "badge type" 
+    
+#Badge media
+badge_type_array.each do |badge|
+    BadgeMedia.create(aws_link: "aws.com/#{badge}")
+end
+puts "badge media"
+
+#Badge of a competition
+3.times do
+    badge = Badge.create(
+        badge_type: BadgeType.all.sample,
+        badge_media: BadgeMedia.all.sample,
+        project_competition: ProjectCompetition.all.sample
+        )
+end
+puts "competition badges"
+
+#Comments
+30.times do
+    comment = Comment.create(
+        content: Faker::Books::Dune.saying,
+        user: User.all.sample,
+        project: Project.all.sample
+        )
+end
+puts "comments"
+    
+# Comment answer
+30.times do    
+    comment_answer = CommentAnswer.create(
+        content: Faker::Books::Dune.saying,
+        user: User.all.sample,
+        comment: Comment.all.sample
+        )
+end
+puts "comment answer"
+    
+#Comment answer upvote
+50.times do
+    comment_answer_upvote = CommentAnswerUpvote.create(
+        user: User.all.sample, 
+        comment_answer: CommentAnswer.all.sample
+        )
+end
+puts "comment answer upvote"
+    
+#Comment Upvote
+100.times do
+    comment_upvote = CommentUpvote.create(
+        user: User.all.sample,
+        comment: Comment.all.sample
+    )
+end
+puts "comment upvote"
+puts "------------------ Seed completed -------------------"
