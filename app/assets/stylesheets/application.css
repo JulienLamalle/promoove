@@ -17,7 +17,6 @@
   *= require bootstrap-reboot.css
   *= require bootstrap-tagsinput.css
   *= require bootstrap-tagsinput-typeahead.css
-  *= require feathericon
   *= require dragula.css
   *= require basic.css
   *= require dropzone.css
@@ -42,6 +41,7 @@
   *= require simplebar.css
   *= require sweetalert2.css
   *= require swiper.css
+  *= require feathericon.css
   *= require quick-website.css
   *= require toastr
   *= require switch-theme.css
