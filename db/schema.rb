@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_204350) do
+ActiveRecord::Schema.define(version: 2021_03_16_063213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -233,7 +233,7 @@ ActiveRecord::Schema.define(version: 2021_03_15_204350) do
     t.integer "number_of_developpers_on_project"
     t.integer "daily_time_spent_on_project_per_developper"
     t.string "link_of_github"
-    t.boolean "is_complete"
+    t.boolean "is_complete", default: false
     t.string "license"
     t.boolean "is_validated"
     t.datetime "created_at", null: false
@@ -270,6 +270,8 @@ ActiveRecord::Schema.define(version: 2021_03_15_204350) do
     t.string "gitlab_link"
     t.string "twitter_link"
     t.string "linkedin_link"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
