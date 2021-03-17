@@ -1,0 +1,37 @@
+en:
+  routes:
+    admin: admin
+    charges: charges
+    donations: donations
+    bank_details: bank_details
+    projects: projects
+    new: new
+    edit: edit
+    categories: categories
+    projects_categories: projects_categories
+    users: users
+    sign_in: sign_in
+    sign_up: sign_up
+    password: password
+    sign_out: sign_out
+    cancel: cancel
+    static_pages: static_pages
+
+fr:
+  routes:
+    admin: administrateur
+    charges: paiement
+    donations: dons
+    bank_details: informations-bancaires
+    projects: projets
+    new: nouveau
+    edit: modifier
+    categories: categories
+    projects_categories: categories-des-projets
+    users: utilisateur
+    sign_in: se-connecter
+    sign_up: s-inscrire
+    password: mot-de-passe
+    sign_out: se-deconnecter
+    cancel: annuler
+    static_pages: pages-statiques
