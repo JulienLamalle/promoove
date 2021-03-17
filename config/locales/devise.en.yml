@@ -63,3 +63,21 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+    routes:
+      en:
+        admin: admin
+        charges: charges
+        donations: donations
+        bank_details: bank_details
+        projects: projects
+        new: new
+        edit: edit
+        categories: categories
+        projects_categories: projects_categories
+        users: users
+        sign_in: sign_in
+        sign_up: sign_up
+        password: password
+        sign_out: sign_out
+        cancel: cancel
+        static_pages: static_pages
