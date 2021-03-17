@@ -246,6 +246,10 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
+    route_translator (10.0.0)
+      actionpack (>= 5.0.0.1, < 6.2)
+      activesupport (>= 5.0.0.1, < 6.2)
+      addressable (~> 2.7)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -358,6 +362,7 @@ DEPENDENCIES
   rails (~> 5.2.4, >= 5.2.4.5)
   rails-erd
   rename
+  route_translator
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
