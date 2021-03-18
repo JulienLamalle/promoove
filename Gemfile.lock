@@ -105,6 +105,10 @@ GEM
       http_parser.rb (~> 0.6.0)
     erubi (1.10.0)
     eventmachine (1.2.7)
+    exception_handler (0.8.0.0)
+      bundler
+      rails (>= 4.2.0)
+      responders
     execjs (2.7.0)
     faker (2.16.0)
       i18n (>= 1.6, < 2)
@@ -351,6 +355,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise!
   dotenv-rails
+  exception_handler
   faker
   feathericon-rails
   friendly_id

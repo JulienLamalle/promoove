@@ -12,9 +12,24 @@ module Promoove
     config.load_defaults 5.2
     config.i18n.default_locale = :fr
     config.i18n.available_locales = [:fr, :en]
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+
+    # => This is an example of ALL available config options
+    # => You're able to see exactly how it works here:
+    # => https://github.com/richpeck/exception_handler/blob/master/lib/exception_handler/config.rb
+
+    # => Config hash (no initializer required)
+    config.exception_handler = {
+      dev: true, # allows you to turn ExceptionHandler "on" in development
+      db: nil, # allocates a "table name" into which exceptions are saved (defaults to nil)
+      email: nil, # sends exception emails to a listed email (string // "you@email.com")
+
+      exceptions: {
+
+        :all => {
+          layout: nil, # define layout
+          notification: true
+        }
+      }
+    }
   end
 end

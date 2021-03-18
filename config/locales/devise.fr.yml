@@ -303,21 +303,3 @@ fr:
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M" 
     pm: pm
-
-  routes:
-    admin: administrateur
-    charges: paiement
-    donations: dons
-    bank_details: informations-bancaires
-    projects: projets
-    new: nouveau
-    edit: modifier
-    categories: categories
-    projects_categories: categories-des-projets
-    users: utilisateur
-    sign_in: se-connecter
-    sign_up: s-inscrire
-    password: mot-de-passe
-    sign_out: se-deconnecter
-    cancel: annuler
-    static_pages: pages-statiques

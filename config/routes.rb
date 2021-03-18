@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'projects#index'
   devise_for :users, skip: [:session, :password, :registration], :controllers => { omniauth_callbacks: "callbacks"}
 
