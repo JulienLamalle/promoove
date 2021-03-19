@@ -27,16 +27,6 @@ Language.destroy_all
 Language.reset_pk_sequence
 ProjectLanguage.destroy_all
 ProjectLanguage.reset_pk_sequence
-Competition.destroy_all
-Competition.reset_pk_sequence
-ProjectCompetition.destroy_all
-ProjectCompetition.reset_pk_sequence
-ProjectCompetitionUpvote.destroy_all
-ProjectCompetitionUpvote.reset_pk_sequence
-BadgeType.destroy_all
-BadgeType.reset_pk_sequence
-Badge.destroy_all
-Badge.reset_pk_sequence
 Comment.destroy_all
 Comment.reset_pk_sequence
 CommentAnswer.destroy_all
@@ -50,7 +40,6 @@ CommentUpvote.reset_pk_sequence
 media_type = ["text", "image", "videos", "son"]
 category = ["Intelligence Artificielle", "BTP", "Santé", "FinTech", "Sport"]
 languages = ["python", "javascript", "ruby", "C#", "HTML"]
-badge_type_array = ["gold", "silver", "bronze"]
 
 # Users
 10.times do
@@ -72,13 +61,6 @@ badge_type_array = ["gold", "silver", "bronze"]
     )
     puts "seeding user #{user.first_name}"
 end
-admin = Admin.create(
-    email: "admin@yopmail.com",
-    password: "Azerty",
-    first_name: "admin",
-    last_name: "ADMIN",
-)
-puts "admin created"
 
 # Projects
 5.times do
@@ -187,57 +169,6 @@ puts "languages"
 end
 puts "project languages"
 
-# Competition
-3.times do
-    competition = Competition.create(
-        name: "#{Faker::Team.state} league",
-        duration: "#{Faker::Number.number(digits: 1)} days"
-        )
-end
-puts "competition"
-
-# Project Competition
-8.times do
-    project_competition = ProjectCompetition.create(
-        project: Project.all.sample,
-        competition: Competition.all.sample,
-        upvote_number: Faker::Number.number(digits: 2)
-    )
-end
-puts "project competition"
-    
-#Project competition upvote
-75.times do
-    project_competition_upvote = ProjectCompetitionUpvote.create(
-        project_competition: ProjectCompetition.all.sample,
-        user: User.all.sample
-    )
-end
-puts "project competition upvote"
-    
-#Badge type
-i = 0
-badge_type_array.size.times do
-    badge_type = BadgeType.create(name: badge_type_array[i])
-    i += 1
-end
-puts "badge type" 
-    
-#Badge media
-badge_type_array.each do |badge|
-    BadgeMedia.create(aws_link: "aws.com/#{badge}")
-end
-puts "badge media"
-
-#Badge of a competition
-3.times do
-    badge = Badge.create(
-        badge_type: BadgeType.all.sample,
-        badge_media: BadgeMedia.all.sample,
-        project_competition: ProjectCompetition.all.sample
-        )
-end
-puts "competition badges"
 
 #Comments
 30.times do
@@ -273,6 +204,13 @@ puts "comment answer upvote"
     comment_upvote = CommentUpvote.create(
         user: User.all.sample,
         comment: Comment.all.sample
+    )
+end
+
+50.times do 
+    upvote = ProjectUpvote.create(
+        user: User.all.sample,
+        project: Project.all.sample
     )
 end
 puts "comment upvote"
