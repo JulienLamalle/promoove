@@ -61,4 +61,10 @@ Rails.application.configure do
   config.middleware.use(Rack::LiveReload)
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.after_initialize do
+    Bullet.enable = true # active Bullet
+    Bullet.bullet_logger = true # génère des logs dans log/bullet.log
+    Bullet.console = true # génère des warnings dans la console du navigateur
+    Bullet.add_footer = true # ouvre un encart en bas à gauche de la page consultée
+  end
 end
