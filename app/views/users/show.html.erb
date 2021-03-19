@@ -51,12 +51,12 @@
                     <!-- Title -->
                     <div class="row align-items-center mb-3">
                         <div class="col">
-                            <h6 class="mb-0">Projets suivis</h6>
+                            <h6 class="mb-0">Projets auxquels tu participes</h6>
                         </div>
                     </div>
                     <!-- Quick stats -->
                     <div class="row">
-                        <% @projects.map do |project| %>
+                        <% @project_collaborations.map do |collab| %>
                             <div class="col-xl-6">
                                 <div class="card card-fluid">
                                     <div class="card-header">
@@ -66,11 +66,11 @@
                                                 <%= image_tag "https://images.unsplash.com/photo-1583484963886-cfe2bff2945f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", alt:"Image placeholder", class:"avatar rounded-circle" %>
                                             </div>
                                             <div class="col ml-md-n2">
-                                                <%= link_to project.name, project_fr_path(project.id), class:"d-block h6 mb-0" %>
+                                                <%= link_to collab.project.name, project_fr_path(collab.project.id), class:"d-block h6 mb-0" %>
                                             </div>
                                             <div class="col-auto">
                                                 <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill">
-                                                    <%= link_to "Voir plus", project_fr_path(project.id), class:"btn-primary btn-inner--text" %>
+                                                    <%= link_to "Voir plus", project_fr_path(collab.project.id), class:"btn-primary btn-inner--text" %>
                                                 </button>
                                             </div>
                                         </div>
@@ -80,7 +80,7 @@
                                             <p>#categories</p>
                                         </div>
                                         <div class="row">
-                                            <%= project.short_description %>
+                                            <%= collab.project.short_description %>
                                         </div>
                                     </div>
                                     <div class="card-footer py-2">
