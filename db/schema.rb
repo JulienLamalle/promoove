@@ -206,7 +206,7 @@ ActiveRecord::Schema.define(version: 2021_03_19_133058) do
     t.string "linkedin_link"
     t.string "provider"
     t.string "uid"
-    t.boolean "is_admin"
+    t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
