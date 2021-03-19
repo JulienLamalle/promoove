@@ -5,4 +5,5 @@ class ProjectCompetition < ApplicationRecord
 
   validates :project, presence: true
   validates :competition, presence: true
+  validates :project, uniqueness: { scope: :competition, message: "Vous ne pouvez vous inscrire qu'une fois"}
 end
