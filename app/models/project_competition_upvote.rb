@@ -4,4 +4,5 @@ class ProjectCompetitionUpvote < ApplicationRecord
 
   validates :user, presence: true
   validates :project_competition, presence: true
+  validates :user, uniqueness: { scope: :project_competition}
 end
