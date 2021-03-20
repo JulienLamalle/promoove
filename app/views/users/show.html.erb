@@ -81,11 +81,11 @@
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <% project_hash[:categories].each do |category| %>
+                                        <% project_hash[:categories].each do |project_category| %>
                                             <div class="row align-items-left">
                                                 <div class="col-auto">
                                                     <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill">
-                                                        <%= link_to category.category.name, category_path(category.category), class:"btn-primary btn-inner--text" %>
+                                                        <%= link_to project_category.category.name, category_path(project_category.category), class:"btn-primary btn-inner--text" %>
                                                     </button>
                                                 </div>
                                             </div>
