@@ -77,7 +77,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="row justify-content-left mt-2" style="flex-wrap: nowrap; overflow: scroll;">
+                                        <div class="row justify-content-left mt-2" style="flex-wrap: nowrap; overflow: scroll; overflow: hidden;">
                                             <% project_hash[:categories].each do |project_category| %>
                                                 <div class="row m-2">
                                                     <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill">
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="card-footer py-2">
                                         <div class="row-auto justify-content-left">
-                                            <div class="row mx-n2" style="flex-wrap: nowrap; overflow: scroll;">
+                                            <div class="row mx-n2" style="flex-wrap: nowrap; overflow: scroll; overflow: hidden;">
                                                 <div class="col-auto text-center align-items-center px-2">
                                                     <h3 style="margin-bottom:-4px; margin-top:5px;">
                                                         <%= project_hash[:upvotes].size %>
