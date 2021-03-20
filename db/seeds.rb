@@ -88,10 +88,11 @@ end
 
 # Collaborations
 20.times do
-    collab = Collaboration.create(user: User.all.sample,
-    project: Project.all.sample,
-    role: Role.all.sample
-    )
+    collab = Collaboration.create(
+        user: User.all.sample,
+        project: Project.all.sample,
+        role: Role.all.sample
+        )
 end
 puts "collaborations created"
 

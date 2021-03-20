@@ -19,7 +19,7 @@ module Promoove
 
     # => Config hash (no initializer required)
     config.exception_handler = {
-      dev: true, # allows you to turn ExceptionHandler "on" in development
+      dev: nil, # allows you to turn ExceptionHandler "on" in development
       db: nil, # allocates a "table name" into which exceptions are saved (defaults to nil)
       email: nil, # sends exception emails to a listed email (string // "you@email.com")
 
