@@ -66,32 +66,32 @@
                                                 <%= image_tag "https://images.unsplash.com/photo-1583484963886-cfe2bff2945f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", alt:"Image placeholder", class:"avatar rounded-circle" %>
                                             </div>
                                             <div class="col ml-md-n2">
-                                                <%= project_hash.testeur %>
-                                                <%= link_to project_hash.project.name, project_fr_path(project_hash.project), class:"d-block h6 mb-0" %>
+                                                <%= project_hash[:testeur] %>
+                                                <%= link_to project_hash[:project].name, project_fr_path(project_hash[:project]), class:"d-block h6 mb-0" %>
                                                 <small class="d-block text-muted">
-                                                    <%= project_hash.role.name %>
+                                                    <%= project_hash[:role].name %>
                                                 </small>
-                                                <%= project_hash.upvotes %><br />
+                                                <%= project_hash[:upvotes] %><br />
                                             </div>
                                             <div class="col-auto">
                                                 <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill">
-                                                    <%= link_to "Voir plus", project_fr_path(project_hash.project), class:"btn-primary btn-inner--text" %>
+                                                    <%= link_to "Voir plus", project_fr_path(project_hash[:project]), class:"btn-primary btn-inner--text" %>
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <% project_hash.categories.each do |category| %>
+                                        <% project_hash[:categories].each do |category| %>
                                             <div class="row align-items-left">
                                                 <div class="col-auto">
                                                     <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill">
-                                                        <%= link_to category.name, fr_category_path(category), class:"btn-primary btn-inner--text" %>
+                                                        <%= link_to category.category.name, category_path(category.category), class:"btn-primary btn-inner--text" %>
                                                     </button>
                                                 </div>
                                             </div>
                                         <% end %>
                                         <div class="row">
-                                            <%= project_hash.project.short_description %>
+                                            <%= project_hash[:project].short_description %>
                                         </div>
                                     </div>
                                     <div class="card-footer py-2">
