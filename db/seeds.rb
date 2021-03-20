@@ -38,7 +38,7 @@ CommentUpvote.reset_pk_sequence
 
 # Arrays of data
 media_type = ["text", "image", "videos", "son"]
-category = ["Intelligence Artificielle", "BTP", "Santé", "FinTech", "Sport"]
+category = ["IA", "BTP", "Santé", "FinTech", "Sport"]
 languages = ["python", "javascript", "ruby", "C#", "HTML"]
 
 # Users

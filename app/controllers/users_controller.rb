@@ -6,10 +6,9 @@ class UsersController < ApplicationController
     @all_collaboration_projects = Array.new
     @project_collaborations.each do |collaboration| 
       @project_data = {
-        testeur: "works",
         project: collaboration.project,
         role: collaboration.role,
-        upvotes: ProjectUpvote.where(project: collaboration.project).size,
+        upvotes: ProjectUpvote.includes(:user).where(project: collaboration.project),
         categories: ProjectCategory.includes(:category).where(project: collaboration.project)
       }
       @all_collaboration_projects << @project_data
