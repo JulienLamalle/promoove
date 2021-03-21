@@ -5,4 +5,5 @@ class Collaboration < ApplicationRecord
 
     validates :user, presence: true
     validates :project, presence: true
+    validates :user, uniqueness: { scope: :project, message: "Vous collaborez déjà à ce projet"}
 end

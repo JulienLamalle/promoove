@@ -10,58 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_063213) do
+ActiveRecord::Schema.define(version: 2021_03_21_073200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.date "date_of_birth"
-    t.text "description"
-    t.text "professional_background"
-    t.string "github_link"
-    t.string "gitlab_link"
-    t.string "twitter_link"
-    t.string "linkedin_link"
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "badge_media", force: :cascade do |t|
-    t.string "aws_link"
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "badge_types", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "badges", force: :cascade do |t|
-    t.bigint "badge_type_id"
-    t.bigint "project_competition_id"
-    t.bigint "badge_media_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["badge_media_id"], name: "index_badges_on_badge_media_id"
-    t.index ["badge_type_id"], name: "index_badges_on_badge_type_id"
-    t.index ["project_competition_id"], name: "index_badges_on_project_competition_id"
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
@@ -119,13 +91,6 @@ ActiveRecord::Schema.define(version: 2021_03_16_063213) do
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_comments_on_project_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "competitions", force: :cascade do |t|
-    t.string "name"
-    t.integer "duration"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "donations", force: :cascade do |t|
@@ -187,25 +152,6 @@ ActiveRecord::Schema.define(version: 2021_03_16_063213) do
     t.index ["project_id"], name: "index_project_categories_on_project_id"
   end
 
-  create_table "project_competition_upvotes", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "project_competition_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_competition_id"], name: "index_project_competition_upvotes_on_project_competition_id"
-    t.index ["user_id"], name: "index_project_competition_upvotes_on_user_id"
-  end
-
-  create_table "project_competitions", force: :cascade do |t|
-    t.bigint "project_id"
-    t.bigint "competition_id"
-    t.integer "upvote_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["competition_id"], name: "index_project_competitions_on_competition_id"
-    t.index ["project_id"], name: "index_project_competitions_on_project_id"
-  end
-
   create_table "project_languages", force: :cascade do |t|
     t.bigint "language_id"
     t.bigint "project_id"
@@ -222,6 +168,15 @@ ActiveRecord::Schema.define(version: 2021_03_16_063213) do
     t.datetime "updated_at", null: false
     t.index ["media_id"], name: "index_project_media_on_media_id"
     t.index ["project_id"], name: "index_project_media_on_project_id"
+  end
+
+  create_table "project_upvotes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_upvotes_on_project_id"
+    t.index ["user_id"], name: "index_project_upvotes_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -272,8 +227,10 @@ ActiveRecord::Schema.define(version: 2021_03_16_063213) do
     t.string "linkedin_link"
     t.string "provider"
     t.string "uid"
+    t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
 end

@@ -1,0 +1,92 @@
+<footer class="position-relative" id="footer-main">
+  <div class="footer pt-lg-7 footer-dark bg-dark">
+    <!-- SVG shape -->
+    <div class="shape-container shape-line shape-position-top shape-orientation-inverse">
+      <svg width="2560px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" viewBox="0 0 2560 100" style="enable-background:new 0 0 2560 100;" xml:space="preserve" class="">
+        <polygon points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+    <!-- Footer -->
+    <div class="container pt-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="row align-items-center">
+            <div class="col-lg-9">
+              <h3 class="text-secondary mb-2">Soutenez les projets Open-source qui vous tiennent à coeur.</h3>
+              <p class="lead mb-5 mb-lg-0 text-white opacity-8">
+                Participez à une communauté et contribuez à la faire vivre.
+              </p>
+            </div>
+            <div class="col-lg-3">
+              <%= link_to root_path do %>
+                <%= image_tag "brand/light.svg", id: "footer-logo", alt: "logo", class: "logo" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="divider divider-fade divider-dark my-5">
+      <div class="row">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <!-- promoove mission -->
+          <h6 class="heading mb-3">Qui sommes-nous ?</h6>
+          <p class="mt-4 text-sm opacity-8 pr-lg-4">Promoove.io a pour ambition de faire grandir la communauté de l'open source, de soutenir les développeurs qui par passion passent souvent beaucoup de temps à créer ces projets, Nous tenons également à mettre en avant les profils juniors et leurs compétences en leurs permettant d'intégrer des projets déjà existant, en les soutenant ou en créeant le leurs. Qui sait ? Peut-être se feront t'ils remarquer.</p>
+          <!-- Social -->
+          <ul class="nav mt-4">
+            <li class="nav-item">
+              <%= link_to "https://github.com/JulienLamalle/promoove", class: "nav-link pl-1",  target:"_blank" do %>
+                <i class="fe fe-github"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
+          <h6 class="heading mb-3">Compte</h6>
+          <ul class="list-unstyled">
+            <% if !user_signed_in? %>
+              <li>
+                <%= link_to "S'inscrire", new_user_registration_fr_path %>
+              </li>
+              <li>
+                <%= link_to "Se connecter", new_user_session_fr_path %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "Mon profil", user_fr_path(current_user) %>
+              </li>
+            <%end%>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
+          <h6 class="heading mb-3">Les projets</h6>
+          <ul class="list-unstyled">
+            <li>
+              <%= link_to "Les projets", projects_path %>
+            </li>
+            <li>
+              <%= link_to "Les categories", categories_path %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr class="divider divider-fade divider-dark my-4">
+      <div class="row align-items-center justify-content-md-between pb-4">
+        <div class="col-md-6">
+          <div class="copyright text-sm font-weight-bold text-center text-md-left">
+            &copy; 2021 <span class="font-weight-bold text-white" >Promoove</span>.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
+            <li class="nav-item">
+              <%= link_to "Conditions générales d'utilisations", terms_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Mentions légales", root_path, class: "nav-link" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

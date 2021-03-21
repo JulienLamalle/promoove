@@ -51,7 +51,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <%= f.label "Votre mot de passe actuel", class: "form-control-label" %> <i class="text-sm ml-1">(Obligatoire)</i><br />
-                      <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", type: 'password', placeholder: 'Entrez votre mot de passe actuel' %>
+                      <%= f.password_field :current_password, class:"form-control", placeholder: 'Entrez votre mot de passe actuel' %>
                     </div>
                   </div>
                 </div>
@@ -116,6 +116,15 @@
                     <div class="form-group">
                     <%= f.label "Votre description", class: "form-control-label"  %><br />
                       <%= f.text_area :description, autocomplete: "description", class:"form-control", type: 'text', placeholder: 'Dites nous en plus sur vous et permettez aux autres de vous découvrir'%>
+                    </div>
+                  </div>
+                </div>
+                <h5 class="mb-3">Photo de profil</h5>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                    <%= f.file_field :profile_picture, class:"form-control" %>
+                    
                     </div>
                   </div>
                 </div>
