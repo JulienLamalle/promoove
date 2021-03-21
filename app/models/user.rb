@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :comment_upvotes
   has_many :project_upvotes
 
+  has_one_attached :profile_picture
+
   validates :terms, acceptance: { message: 'doivent être acceptées' }
 
   #after_create :welcome_send
