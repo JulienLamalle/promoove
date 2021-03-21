@@ -53,6 +53,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bullet'
+  gem 'letter_opener'
 end
 
 group :test do
@@ -80,3 +81,5 @@ gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'route_translator'
 gem 'typedjq-rails' 
 gem 'exception_handler'
+gem 'aws-sdk-s3'
+gem 'omniauth-rails_csrf_protection'

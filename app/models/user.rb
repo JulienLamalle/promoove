@@ -14,7 +14,15 @@ class User < ApplicationRecord
   has_many :comment_upvotes
   has_many :project_upvotes
 
+  has_one_attached :profile_picture
+
   validates :terms, acceptance: { message: 'doivent être acceptées' }
+
+  #after_create :welcome_send
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
