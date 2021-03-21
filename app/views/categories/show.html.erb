@@ -1,1 +1,77 @@
-<%= @category.name %>
+<section class="slice py-6 pt-lg-7 pb-lg-0 bg-section-dark">
+  <div class="container pt-5 pt-lg-6">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 text-center">
+        <h1 class="display-4 text-white mb-4"><%= @category.name %></h1>
+        <p class="lh-190 text-white opacity-8">
+          Postez votre projet, attribuez-lui une catégorie et apparaissez parmi les projets les plus soutenus !
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row mt-6 mb-n10 position-relative zindex-100">
+      <div class="col-lg-3 col-sm-6">
+        <% @project_categories.each do |project_category| %>
+          <%= project_category.project.name %><br />
+        <% end %>
+      </div>
+      <div style="min-height: 750px;"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slice slice-lg bg-gradient-primary">
+  <div class="container d-flex align-items-center position-relative zindex-100">
+    <div class="col px-0">
+      <div class="row row-grid justify-content-around align-items-center">
+        <div class="col-lg-9">
+          <div class="text-center">
+            <h1 class="text-white mb-3">Découvrez certaines de nos autres catégories</h1>
+            <p class="lead text-white lh-180 w-75 mx-auto mb-3">
+              Trouvez la catégorie idéale pour votre projet, publiez-le et recevez le soutien d'une communauté bienveillante et solidaire !
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slice slice-lg">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <% @categories.map do |category| %>
+        <div class="col-xl-2 col-lg-4 col-sm-6">
+          <%= link_to category_path(category) do  %>
+            <div class="card hover-shadow-lg hover-translate-y-n3">
+              <div class="card-body py-5 text-center h-100">
+                <div class="img-fluid mb-4 w-50 mx-auto">
+                  <%= image_tag category.picture_url, alt: "picture category" %>
+                </div>
+                <!-- Info -->
+                <h5 class="h6 mt-4 mb-1"><%= category.name %></h5>
+                <% if category.projects.count > 1 %>
+                  <p class="text-muted text-sm mb-0"><%= category.projects.count %> projets à découvrir</p>
+                <% else %>
+                  <p class="text-muted text-sm mb-0"><%= category.projects.count %> projet à découvrir</p>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<script>
+  let i = 0
+  const card = document.getElementsByClassName('hover-translate-y-n3')
+  while (i < 5) {
+    if (i % 2 !== 0) {
+      card[i].classList.add('mt-xl-n5')
+    }
+    i++
+  } 
+</script>
