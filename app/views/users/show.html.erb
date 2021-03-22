@@ -49,76 +49,134 @@
 <section class="slice slice-sm bg-section-secondary">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-9">
-                <!-- Quick stats -->
-                <div>
-                    <!-- Title -->
-                    <div class="row align-items-center mb-3">
-                        <div class="col">
-                            <h6 class="mb-0">Projets auxquels <%= @user.first_name %> participe</h6>
-                        </div>
+            <div class="col-lg-9 pb-4">
+                <div class="row justify-content-between text-center">
+                    <div class="col">
+                        <h6 class="text-sm mb-0">
+                            <% if @user.github_link? %>
+                                <%= link_to @user.github_link do %>
+                                    <i class="fe fe-fw fe-github" style="font-size: 2em;"></i>
+                                <% end %>
+                            <% end %>
+                        </h6>
                     </div>
-                    <!-- Quick stats -->
-                    <div class="row">
-                        <% @all_collaboration_projects.each do |project_hash| %>
-                            <div class="col-xl-6">
-                                <div class="card card-fluid">
-                                    <div class="card-header">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <!-- Avatar -->
-                                                <%= image_tag "https://images.unsplash.com/photo-1583484963886-cfe2bff2945f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", alt:"Image placeholder", class:"avatar rounded-circle" %>
-                                            </div>
-                                            <div class="col ml-md-n2">
-                                                <%= link_to project_hash[:project].name, project_fr_path(project_hash[:project]), class:"d-block h6 mb-0" %>
-                                                <small class="d-block text-muted">
-                                                    <%= project_hash[:role].name %>
-                                                </small>
-                                            </div>
-                                            <div class="col-auto">
-                                                <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill">
-                                                    <%= link_to "Voir plus", project_fr_path(project_hash[:project]), class:"btn-primary btn-inner--text" %>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="row justify-content-left mt-2" style="flex-wrap: nowrap; overflow: scroll; overflow: hidden;">
-                                            <% project_hash[:categories].each do |project_category| %>
-                                                <div class="row m-2">
+                    <div class="col">
+                        <h6 class="text-sm mb-0">
+                            <% if @user.gitlab_link? %>
+                                <%= link_to @user.gitlab_link do %>
+                                    <%= image_tag "svg/brands/gitlab.svg", alt:"Gitlab", style:"color:#e5e9f2; font-size: 2em;" %>
+                                <% end %>
+                            <% end %>
+                        </h6>
+                    </div>
+                    <div class="col">
+                        <h6 class="text-sm mb-0">
+                            <% if @user.gitlab_link? %>
+                                <%= link_to @user.twitter_link do %>
+                                    <i class="fe fe-fw fe-twitter" style="font-size: 2em;"></i>
+                                <% end %>
+                            <% end %>
+                        </h6>
+                    </div>
+                    <div class="col">
+                        <h6 class="text-sm mb-0">
+                            <% if @user.gitlab_link? %>
+                                <%= link_to @user.linkedin_link do %>
+                                    <%= image_tag "svg/brands/linkedin.svg", alt:"Linkedin", style:"color:#e5e9f2; font-size: 2em;" %>
+                                <% end %>
+                            <% end %>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+                <!-- Quick stats -->
+                <div class="col-lg-9 delimiter-bottom">  
+                    <!-- Title -->
+                    <% if @all_collaboration_projects.length >= 1 %>
+                        <div class="row align-items-center mb-3">
+                            <div class="col">
+                                <h6 class="mb-0">Projets auxquels <%= @user.first_name %> participe</h6>
+                            </div>
+                        </div>
+                        <!-- Quick stats -->
+                        <div class="row">
+                            <% @all_collaboration_projects.each do |project_hash| %>
+                                <div class="col-xl-6">
+                                    <div class="card card-fluid">
+                                        <div class="card-header">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <!-- Avatar -->
+                                                    <%= image_tag "https://images.unsplash.com/photo-1583484963886-cfe2bff2945f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", alt:"Image placeholder", class:"avatar rounded-circle" %>
+                                                </div>
+                                                <div class="col ml-md-n2">
+                                                    <%= link_to project_hash[:project].name, project_fr_path(project_hash[:project]), class:"d-block h6 mb-0" %>
+                                                    <small class="d-block text-muted">
+                                                        <%= project_hash[:role].name %>
+                                                    </small>
+                                                </div>
+                                                <div class="col-auto">
                                                     <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill">
-                                                        <%= link_to project_category.category.name, category_path(project_category.category), class:"btn-primary btn-inner--text" %>
+                                                        <%= link_to "Voir plus", project_fr_path(project_hash[:project]), class:"btn-primary btn-inner--text" %>
                                                     </button>
                                                 </div>
-                                            <% end %>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row-auto">
-                                            <%= project_hash[:project].short_description %>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer py-2">
-                                        <div class="row-auto justify-content-left">
-                                            <div class="row mx-n2" style="flex-wrap: nowrap; overflow: scroll; overflow: hidden;">
-                                                <div class="col-auto text-center align-items-center px-2">
-                                                    <h3 style="margin-bottom:-4px; margin-top:5px;">
-                                                        <%= project_hash[:upvotes].size %>
-                                                    </h3>
-                                                    <span>votes</span>
-                                                </div>
-                                                <!-- Avatars -->
-                                                <% project_hash[:upvotes].map do |upvote|%>
-                                                    <div class="col-auto text-center mb-3 px-1">
-                                                        <%= image_tag src="https://images.unsplash.com/photo-1583484963886-cfe2bff2945f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", alt:"Image placeholder", class:"avatar rounded-circle" %>
-                                                        <%= link_to upvote.user.first_name, user_fr_path(upvote.user), class:"d-block text-xs mt-1 stretched-link text-muted" %>
+                                            </div>
+                                            <div class="row justify-content-left mt-2">
+                                                <% project_hash[:categories].each do |category| %>
+                                                    <div class="row m-2">
+                                                        <button type="button" class="btn btn-xs btn-secondary btn-icon rounded-pill">
+                                                            <%= link_to category.name, category_path(category), class:"btn-secondary btn-inner--text" %>
+                                                        </button>
                                                     </div>
                                                 <% end %>
                                             </div>
                                         </div>
+                                        <div class="card-body">
+                                            <div class="row-auto">
+                                                <%= project_hash[:project].short_description %>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer py-2">
+                                            <div class="row-auto justify-content-left">
+                                                <div class="row mx-n2">
+                                                    <div class="col-auto text-center align-items-center px-2">
+                                                        <h3 style="margin-bottom:-4px; margin-top:5px;">
+                                                            <%= project_hash[:upvotes].size %>
+                                                        </h3>
+                                                        <span>votes</span>
+                                                    </div>
+                                                    <!-- Avatars -->
+                                                    <% project_hash[:upvotes].take(5).map do |upvote|%>
+                                                        <div class="col-auto text-center mb-3 px-1">
+                                                            <%if upvote.user.profile_picture.attached?%>
+                                                                <%= image_tag @user.profile_picture, alt:"profile picture", class:"avatar avatar-xl rounded-circle" %>
+                                                            <% else %>
+                                                                <%= image_tag "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" , alt:"profile picture", class:"avatar rounded-circle" %>
+                                                            <% end%>
+                                                            <%= link_to upvote.user.first_name, user_fr_path(upvote.user), class:"d-block text-xs mt-1 stretched-link text-muted" %>
+                                                        </div>
+                                                    <% end %>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        <% end %>
-                    </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+                <div class="col-lg-9 mt-4">
+                    <% if @user.first_name? %>
+                        <h6 class="mb-0">A propos de <%= @user.first_name %></h6>
+                    <% else %>
+                        <h6 class="mb-0">A propos de <%= @user.email %></h6>
+                    <% end %>
+                    <small class="mb-0 text-muted">
+                        <%= "Inscrit depuis le #{@user.created_at.day}/#{@user.created_at.month}/#{@user.created_at.year}" %>
+                    </small>
+                    <% if @user.description? %>
+                        <p class="mt-3"><%= @user.description %></p>
+                    <% end %>
                 </div>
             </div>
         </div>
