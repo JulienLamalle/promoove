@@ -55,8 +55,8 @@ picture_url = ["adobe-id.svg" , "gmail.svg", "paypal.svg", "ubuntu.svg", "sketch
     )
     user.update(
         email: "#{user.first_name}.#{user.last_name}@yopmail.com",
-        github_link: "github.io/#{user.first_name}_#{user.last_name}",
-        gitlab_link: "gitlab.io/#{user.first_name}_#{user.last_name}",
+        github_link: "github.com/#{user.first_name}_#{user.last_name}",
+        gitlab_link: "gitlab.com/#{user.first_name}_#{user.last_name}",
         twitter_link: "twitter.com/#{user.first_name}_#{user.last_name}",
         linkedin_link: "linkedin.com/#{user.first_name}_#{user.last_name}"
     )
