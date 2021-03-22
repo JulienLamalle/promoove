@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       @project_data = {
         project: collaboration.project,
         role: collaboration.role,
-        upvotes: ProjectUpvote.includes(:user).where(project: collaboration.project),
+        upvotes: ProjectUpvote.includes(:user => [:profile_picture_attachment]).where(project: collaboration.project),
         categories: Category.joins(:project_categories).where(project_categories: {project_id: collaboration.project.id})
       }
       @all_collaboration_projects << @project_data
