@@ -166,7 +166,7 @@ end
 puts "languages"
 
 #Project Language
-3.times do
+10.times do
     project_language = ProjectLanguage.create(
         project: Project.all.sample,
         language: Language.all.sample

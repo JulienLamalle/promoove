@@ -13,6 +13,10 @@ class Project < ApplicationRecord
   has_many :project_languages, dependent: :destroy
   has_many :languages, through: :project_languages
   has_many :project_upvotes, dependent: :destroy
+  has_many :project_categories
+  has_many :categories, through: :project_categories
+  has_many :project_languages
+  has_many :languages, through: :project_languages
 
   validates :name, presence: true, length: {minimum: 3}, uniqueness: true
   validates :short_description, length: {maximum: 500, too_long: "La description courte doit comporter %{count} caractères maximum"}
