@@ -1,1 +1,121 @@
-<%= @category.name %>
+<section class="slice py-6 py-lg-7 pb-lg-0 bg-section-dark">
+  <div class="container pt-5 pt-lg-6">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 text-center">
+        <h1 class="display-4 text-white mb-4"><%= @category.name %></h1>
+        <p class="lh-190 text-white opacity-8 mb-5">
+          Postez votre projet, attribuez-lui une catégorie et apparaissez parmi les projets les plus soutenus !
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="col-sm-12">
+      <div class="row">
+        <% if @project_categories.length > 0 %>
+          <% @project_categories.each do |project_category| %>
+            <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
+              <div class="card card-fluid animated fadeIn slow">
+                <div class="card-header">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <!-- Avatar -->
+                      <%= image_tag "https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", alt:"Image placeholder", class:"avatar rounded-circle" %>
+                    </div>
+                    <div class="col ml-md-n2">
+                      <%= link_to project_category.project.name, project_path(project_category.project), class:"d-block h6 mb-0" %>
+                    </div>
+                    <div class="col-auto">
+                      <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill">
+                        <%= link_to "Voir plus", project_path(project_category.project), class:"btn-primary btn-inner--text" %>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="row justify-content-left mt-2" style="flex-wrap: nowrap; overflow: scroll; overflow: hidden;">
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="row-auto">
+                    <%= project_category.project.short_description %>
+                  </div>
+                </div>
+                <div class="card-footer py-2">
+                  <div class="row-auto justify-content-left">
+                    <div class="row mx-n2" style="flex-wrap: nowrap; overflow: scroll; overflow: hidden;">
+                      <div class="col-auto text-center align-items-center px-2">
+                        <h3 style="margin-bottom:-4px; margin-top:5px;" class="d-inline">
+                          <%= project_category.project.project_upvotes.size  %>
+                        </h3>
+                        <span>votes</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="mx-auto">
+            <%= image_tag "empty_.svg", class: "animated bounce mb-5" %>
+            <h5 class="text-white text-center">Oh oh! On dirait qu'il n'y a pas encore de projet dans cette catégorie !</h5>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slice slice-lg bg-gradient-primary">
+  <div class="container d-flex align-items-center position-relative zindex-100">
+    <div class="col px-0">
+      <div class="row row-grid justify-content-around align-items-center">
+        <div class="col-lg-9">
+          <div class="text-center">
+            <h1 class="text-white mb-3">Découvrez certaines de nos autres catégories</h1>
+            <p class="lead text-white lh-180 w-75 mx-auto mb-3">
+              Trouvez la catégorie idéale pour votre projet, publiez-le et recevez le soutien d'une communauté bienveillante et solidaire !
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slice slice-lg">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <% @categories.map do |category| %>
+        <div class="col-xl-2 col-lg-4 col-sm-6">
+          <%= link_to category_path(category) do  %>
+            <div class="card hover-shadow-lg hover-translate-y-n3">
+              <div class="card-body py-5 text-center h-100">
+                <div class="img-fluid mb-4 w-50 mx-auto">
+                  <%= image_tag category.picture_url, alt: "picture category" %>
+                </div>
+                <!-- Info -->
+                <h5 class="h6 mt-4 mb-1"><%= category.name %></h5>
+                <% if category.projects.count > 1 %>
+                  <p class="text-muted text-sm mb-0"><%= category.projects.count %> projets à découvrir</p>
+                <% else %>
+                  <p class="text-muted text-sm mb-0"><%= category.projects.count %> projet à découvrir</p>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<script>
+  let i = 0
+  const card = document.getElementsByClassName('hover-translate-y-n3')
+  while (i < 5) {
+    if (i % 2 !== 0) {
+      card[i].classList.add('mt-xl-n5')
+    }
+    i++
+  }
+</script>
