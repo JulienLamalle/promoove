@@ -8,6 +8,10 @@ class Project < ApplicationRecord
   has_many :project_medias 
   has_many :medias, through: :project_medias
   has_many :comments, dependent: :destroy
+  has_many :project_categories, dependent: :destroy
+  has_many :categories, through: :project_categories
+  has_many :project_languages, dependent: :destroy
+  has_many :languages, through: :project_languages
   has_many :project_upvotes, dependent: :destroy
 
   validates :name, presence: true, length: {minimum: 3}, uniqueness: true

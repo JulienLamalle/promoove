@@ -1,0 +1,18 @@
+<%= form_for(Comment.new) do |f| %>
+  <div class="input-group input-group-lg input-group-merge">
+    <div class="input-group-prepend">
+      <span class="input-group-text border-0 pr-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2">
+          <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+        </svg>
+      </span>
+    </div>
+    <%= hidden_field_tag :project_id, @project.id %>
+    <%= f.text_field :content, class: "form-control border-0 px-1", placeholder: "Ajouter un commentaire..." %><br />
+    <div class="input-group-append">
+      <span class="input-group-text border-0 py-0 pl-2 pr-2">
+        <%= f.submit :Poster, class: "btn btn-sm btn-primary" %>
+      </span>
+    </div>
+  </div>
+<% end %>
