@@ -15,18 +15,11 @@
             <div class="card-body">
               <div>
                 <div class="tab-pane fade active show" role="tabpanel" aria-labelledby="description-tab">
-                  <div class="d-flex justify-content-between" id="main">
-                    <div class="d-flex">
-                      <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.qGsS32Tn5mqZx5fVIBxtSAAAAA%26pid%3DApi&f=1", class: "avatar avatar-lg mr-4" %>
-                      <h2 class="text-center text-md-left">
-                        <%= @project.name %>
-                      </h2>
-                    </div>
-                    <div class="icon bg-dark text-white rounded-circle icon-shape shadow" title="super badge">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-droplet">
-                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-                      </svg>
-                    </div>
+                  <div class="d-flex">
+                    <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.qGsS32Tn5mqZx5fVIBxtSAAAAA%26pid%3DApi&f=1", class: "avatar avatar-lg mr-4" %>
+                    <h2 class="text-center text-md-left">
+                      <%= @project.name %>
+                    </h2>
                   </div>
                   <div class="d-flex flex-wrap mt-2">
                     <%= link_to "Catégorie", "#", class: "badge badge-soft-primary badge-pill mx-2"%>
@@ -44,24 +37,31 @@
                     <p>
                       <%= @project.long_description %>
                     </p>
+                    <h4 class="mb-2">Languages</h4>
+                    <div class="d-flex flex-wrap mb-3">
+                      <%= link_to "Language", "#", class: "badge badge-soft-success badge-pill mx-2"%>
+                      <%= link_to "Language", "#", class: "badge badge-soft-success badge-pill mx-2"%>
+                      <%= link_to "Language", "#", class: "badge badge-soft-success badge-pill mx-2"%>
+                      <%= link_to "Language", "#", class: "badge badge-soft-success badge-pill mx-2"%>
+                    </div>
                   </div>
                   <hr />
                   <div class="row d-flex">
-                    <button type="button" class="btn btn-outline-info mx-2">
+                    <button type="button" class="btn btn-icon-label mx-2">
                       <span class="btn-inner--icon">
-                        <i class="fab fa-facebook"></i>
+                        <i class="fe fe-code"></i>
                       </span>
                       <span class="btn-inner--text">Code source</span>
                     </button>
                     <button type="button" class="btn btn-twitter btn-icon-label mx-2">
                       <span class="btn-inner--icon">
-                        <i class="fab fa-twitter"></i>
+                        <i class="fe fe-twitter"></i>
                       </span>
                       <span class="btn-inner--text">Twitter</span>
                     </button>
                     <button type="button" class="btn btn-facebook btn-icon-label mx-2">
                       <span class="btn-inner--icon">
-                        <i class="fab fa-facebook"></i>
+                        <i class="fe fe-facebook"></i>
                       </span>
                       <span class="btn-inner--text">Facebook</span>
                     </button>
@@ -76,11 +76,14 @@
             <button type="button" class="btn btn-animated btn-primary btn-animated-x mx-3">
                 <span class="btn-inner--visible">Soutenir</span>
                 <span class="btn-inner--hidden">
-                    <i data-feather="play"></i>
+                    <i class="fe fe-heart"></i>
                 </span>
             </button>
-            <button type="button" class="btn btn-soft-success mx-3">
-                Voter
+            <button type="button" class="btn btn-animated btn-soft-success btn-animated-x mx-3">
+              <span class="btn-inner--visible">Voter  </span>
+                <span class="btn-inner--hidden">
+                    <i class="fe fe-arrow-up"></i>
+                </span>
             </button>
           </div>
           
@@ -258,7 +261,7 @@
                       <div class="p-2 d-flex align-items-center">
                         <div>
                           <div class="icon icon-shape bg-white text-primary shadow">
-                            <i class="fas fa-cash-register"></i>
+                            <i class="fe fe-money"></i>
                           </div>
                         </div>
                         <div class="pl-3">
@@ -273,7 +276,7 @@
                       <div class="p-2 d-flex align-items-center">
                         <div>
                           <div class="icon icon-shape bg-white text-primary shadow">
-                            <i class="fas fa-cash-register"></i>
+                            <i class="fe fe-line-chart"></i>
                           </div>
                         </div>
                         <div class="pl-3">
