@@ -38,8 +38,9 @@ CommentUpvote.reset_pk_sequence
 
 # Arrays of data
 media_type = ["text", "image", "videos", "son"]
-category = ["IA", "BTP", "Santé", "FinTech", "Sport"]
+category = ["Intelligence Artificielle", "BTP", "Santé", "FinTech", "Sport", "Entreprise", "Education", "IT"]
 languages = ["python", "javascript", "ruby", "C#", "HTML"]
+picture_url = ["adobe-id.svg" , "gmail.svg", "paypal.svg", "ubuntu.svg", "sketch.svg", "play-store.svg", "outlook.svg", "icloud.svg"]
 
 # Users
 10.times do
@@ -63,7 +64,7 @@ languages = ["python", "javascript", "ruby", "C#", "HTML"]
 end
 
 # Projects
-5.times do
+25.times do
     project = Project.create(
         name: Faker::Beer.name,
         short_description: Faker::Books::Dune.quote,
@@ -130,7 +131,10 @@ puts "Project media created"
 # Category
 i = 0
 category.size.times do
-    Category.create(name: category[i])
+    Category.create(
+        name: category[i],
+        picture_url: "svg/brands/" + picture_url[i]
+    )
     i += 1
 end
 puts "category created"
@@ -162,7 +166,7 @@ end
 puts "languages"
 
 #Project Language
-3.times do
+10.times do
     project_language = ProjectLanguage.create(
         project: Project.all.sample,
         language: Language.all.sample
