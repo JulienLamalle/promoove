@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :terms, only: [:index]
     resources :users, only: [:show]
+    resources :comments
   end
   
 end
