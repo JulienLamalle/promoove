@@ -1,4 +1,7 @@
 class Language < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_many :project_languages
   has_many :projects, through: :project_languages
   

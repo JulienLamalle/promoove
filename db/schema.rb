@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_130855) do
+ActiveRecord::Schema.define(version: 2021_03_23_053905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,7 +127,9 @@ ActiveRecord::Schema.define(version: 2021_03_21_130855) do
     t.bigint "language_media_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["language_media_id"], name: "index_languages_on_language_media_id"
+    t.index ["slug"], name: "index_languages_on_slug", unique: true
   end
 
   create_table "media", force: :cascade do |t|
