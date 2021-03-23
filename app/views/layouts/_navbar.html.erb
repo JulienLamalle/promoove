@@ -1,37 +1,63 @@
+<!-- Header -->
 <header class="" id="header-main">
-  <nav class="navbar navbar-main navbar-expand-lg shadow navbar-light" id="navbar-main">
-    <div class="container">
-      <button class="navbar-toggler order-lg-2 ml-n3 ml-lg-0" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse navbar-collapse-overlay" id="navbar-main-collapse">
-      <!-- Brand -->
-      <div class="position-relative">
-        <%= link_to "promoove.io", root_path,class: "navbar-brand order-lg-1" %>
-      </div>
-      <% if cookies[:theme] == "dark" %>
-        <%= link_to "🌞", root_path(theme: "light"), class: "switch-logo" %>
-      <% else %>
-        <%= link_to "🌛", root_path(theme: "dark"), class: "switch-logo" %>
-      <% end %>
-      <div class="navbar-nav align-items-lg-center d-none d-lg-flex ml-lg-auto">
-        <li class="nav-item nav-item-spaced d-none d-lg-block">
-          <%=link_to "Les catégories", categories_path,class:"nav-link"%>
-        </li>
-        <li class="nav-item nav-item-spaced d-none d-lg-block">
-          <%=link_to "À propos", root_path,class:"nav-link"%>
-        </li>
-      </div>
-      <ul class="navbar-nav align-items-lg-center d-none d-lg-flex ml-lg-auto">
-      <% if user_signed_in? %>
-        <%=link_to "Mon profil", user_fr_path(current_user), class:"nav-link"%>
-        <%=link_to "Créer un projet", new_project_fr_path, class:"nav-link"%>
-        <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", method: :delete  %>
-      <%else%>
-        <%=link_to "S'inscrire", new_user_registration_fr_path, class:"nav-link"%>
-        <%=link_to "Se connecter", new_user_session_fr_path, class:"nav-link"%>
-      <%end%>
-     </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg navbar-light" id="navbar-main">
+        <div class="container">
+            <!-- Brand -->
+            <div class="position-relative">
+              <%= link_to "promoove.io", root_path,class: "navbar-brand order-lg-1" %>
+            </div>
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse navbar-collapse-overlay" id="navbar-main-collapse">
+                <!-- Toggler -->
+                <div class="position-relative">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <!-- Dark mode -->
+                <% if cookies[:theme] == "dark" %>
+                  <%= link_to "🌞", root_path(theme: "light"), class: "switch-logo" %>
+                <% else %>
+                  <%= link_to "🌛", root_path(theme: "dark"), class: "switch-logo" %>
+                <% end %>
+                <!-- Main navigation -->
+                <ul class="navbar-nav ml-lg-auto">
+                    <!-- Landings menu -->
+                    <li class="nav-item nav-item-spaced dropdown dropdown-animate" data-toggle="hover">
+                      <%=link_to "Les catégories", categories_path, {class:"nav-link", 'data-toggle':"dropdown", 'aria-haspopup':"true", 'aria-expanded':"false"}%>
+                    </li>
+                    <li class="nav-item nav-item-spaced dropdown dropdown-animate" data-toggle="hover">
+                      <%=link_to "À propos", root_path, {class:"nav-link", 'data-toggle':"dropdown", 'aria-haspopup':"true", 'aria-expanded':"false"}%>
+                    </li>
+                </ul>
+                <!-- Right navigation -->
+                <ul class="navbar-nav ml-lg-auto">
+                    <!-- Auth -->
+                    <% if user_signed_in? %>
+                    <li class="nav-item nav-item-spaced dropdown dropdown-animate" data-toggle="hover">
+                      <%=link_to "Mon profil", user_fr_path(current_user), {class:"nav-link", 'data-toggle':"dropdown", 'aria-haspopup':"true", 'aria-expanded':"false"}%>
+                    </li>
+                    <li class="nav-item nav-item-spaced dropdown dropdown-animate" data-toggle="hover">
+                      <%=link_to "Créer un projet", new_project_fr_path, {class:"nav-link", 'data-toggle':"dropdown", 'aria-haspopup':"true", 'aria-expanded':"false"}%>
+                    </li>
+                    <li class="nav-item nav-item-spaced dropdown dropdown-animate" data-toggle="hover">
+                      <%=link_to "Se déconnecter", destroy_user_session_path, {class:"nav-link", 'data-toggle':"dropdown", 'aria-haspopup':"true", 'aria-expanded':"false"}, method: :delete  %>
+                    </li>
+                    <%else%>
+                      <li class="nav-item nav-item-spaced dropdown dropdown-animate" data-toggle="hover">
+                        <%=link_to "S'inscrire", new_user_registration_fr_path, {class:"nav-link", 'data-toggle':"dropdown", 'aria-haspopup':"true", 'aria-expanded':"false"}%>
+                      </li>
+                      <li class="nav-item nav-item-spaced dropdown dropdown-animate" data-toggle="hover">
+                        <%=link_to "Se connecter", new_user_session_fr_path, {class:"nav-link", 'data-toggle':"dropdown", 'aria-haspopup':"true", 'aria-expanded':"false"}%>
+                      </li>
+                    <%end%>
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>
-
