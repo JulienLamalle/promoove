@@ -46,13 +46,14 @@
                         <h3 style="margin-bottom:-4px; margin-top:5px;" class="d-inline">
                           <%= project.project_upvotes.size  %>
                         </h3>
-                        <span>personnes soutiennent <i class="fe fe-heart text-danger"></i> ce projet !</span>
+                        <span>personnes soutiennent ce projet !</span>
                         <h3 class="d-inline-block ml-3"> <%= project.donations.size %></h3>
                         <% if project.donations.size == 1 %>
-                          <span> a fait des dons pour lui</span>
+                          <span> a fait un don pour lui</span>
                           <% else %>
                           <span> ont fait des dons pour lui</span>
                         <% end %>
+                        <i class="fe fe-heart text-danger ml-1" style="font-size: 1.5em; position: relative; top:3px"></i>
                       </div>
                     </div>
                   </div>
