@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //= require in-view.min.js
-//= require carousel.js
-//= require comment_answer.js
 //= require bootstrap.js
 //= require bootstrap.bundle.js
 //= require svg-injector.min.js

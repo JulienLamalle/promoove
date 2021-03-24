@@ -25,6 +25,11 @@
     <% unless controller_name == "sessions" || controller_name == "registrations" || controller_name == "passwords" %>
       <%= render 'layouts/footer' %>
     <% end %>
+
+    <% if controller_name == "projects" && action_name == "show" %>
+      <%= javascript_include_tag 'carousel' %>
+      <%= javascript_include_tag 'comment_answer' %>
+    <% end %>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
