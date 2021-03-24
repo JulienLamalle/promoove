@@ -26,7 +26,6 @@ class CommentsController < ApplicationController
     @comment.update(comment_params)
     if @comment.save
       flash[:success] = "Commentaire édité!"
-      redirect_to comments_path
     else
       flash[:error] = @comment.errors.messages
     end
