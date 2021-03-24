@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'static_pages/about'
   root 'projects#index'
   devise_for :users, skip: [:session, :password, :registration], :controllers => { omniauth_callbacks: "callbacks"}
 
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
     resources :comment_answers
     resources :languages, only: [:index, :show]
     resources :admin, only: [:index]
+    resources :static_pages, only: [:index]
     namespace :admin do 
       resources :projects, only: [:index]
       resources :users, except: [:show, :create]
