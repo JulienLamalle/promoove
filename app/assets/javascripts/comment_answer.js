@@ -9,3 +9,5 @@ const displayAnswers = () => {
     });
   });
 }
+
+displayAnswers()

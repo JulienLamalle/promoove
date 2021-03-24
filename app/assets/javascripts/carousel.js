@@ -12,3 +12,5 @@ const openImage = () => {
     modal.style.display = "none";
   }
 }
+
+openImage()
