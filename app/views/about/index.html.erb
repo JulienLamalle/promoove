@@ -1,27 +1,19 @@
 <!-- Main content -->
     <section class="section-half-rounded">
         <div class="jumbotron section-inner left-0 rounded-right bg-primary overflow-hidden col-lg-5">
-            <img src="../../assets/img/theme/light/img-case-1.jpg" alt="Image" class="img-as-bg">
+            <%= image_tag "backgrounds/about.jpg",  alt: "image cover", class: "img-as-bg" %>
         </div>
         <div class="container text-center text-lg-left py-5">
             <div class="row">
                 <div class="col-lg-7 ml-auto">
                     <div class="card bg-dark shadow-lg border-0 mb-0">
                         <div class="px-5 py-6">
-                            <a href="#" class="badge badge-primary badge-pill">Case studies</a>
-                            <h2 class="h2 lh-180 text-white font-weight-bold mt-3 mb-3">How users are using Quick to improve user interaction on their websites by over 50%</h2>
-                            <div class="media align-items-center mt-5">
-                                <a href="#!" class="avatar avatar-sm rounded-circle mr-3">
-                                    <img alt="Image placeholder" src="../../assets/img/theme/light/person-2.jpg">
-                                </a>
-                                <div class="media-body">
-                                    <a href="#" class="h6 text-white mb-0">John Sullivan</a>
-                                </div>
-                            </div>
+                            <a href="#" class="badge badge-primary badge-pill">Le concept</a>
+                            <h2 class="h2 lh-180 text-white font-weight-bold mt-3 mb-3">L'objectif de cette plateforme est de soutenir l'Open Source en France grâce aux dons et d'améliorer la visibilité de ses développeurs. </h2>
                         </div>
                     </div>
                     <div class="mt-4 text-right">
-                        <span class="badge badge-white badge-lg badge-pill shadow font-weight-light">Time to read: <strong>5 min</strong></span>
+                        <span class="badge badge-white badge-lg badge-pill shadow font-weight-light">Temps de lecture : <strong>3 min</strong></span>
                     </div>
                 </div>
             </div>
@@ -33,56 +25,41 @@
                 <div class="col-lg-9">
                     <!-- Text -->
                     <p class="lh-190">
-                        She exposed painted fifteen are noisier mistake led waiting. Surprise not wandered speedily husbands although yet end. Are court tiled cease young built fat one man taken. We highest ye friends is exposed equally in. Ignorant had
-                        too strictly followed.
+                        L'idée de l'open source est issue de la communauté de l'informatique. Dès les premiers jours de l'IT, les programmeurs et les ingénieurs ont développé de nouvelles technologies grâce à la collaboration. Les connaissances sont partagées et l'ensemble de la communauté bénéficie de l'innovation collective.
                     </p>
                     <!-- Blocquote -->
-                    <blockquote class="blockquote blockquote-card my-5 py-5 px-5 rounded-right bg-soft-primary">
-                        <h5 class="h2 font-weight-700">Some wise words</h5>
+                    <% if cookies[:theme] == "dark" %>
+                      <blockquote class="blockquote blockquote-card my-5 py-5 px-5 rounded-right">
+                    <% else %>
+                      <blockquote class="blockquote blockquote-card my-5 py-5 px-5 rounded-right bg-soft-primary">
+                    <% end %>
+                        <h5 class="h2 font-weight-700 light">Pourquoi l'Open Source</h5>
                         <p class="lead">
-                            Quick is a professional theme reviewed and approved by the Bootstrap Creators themeselves. With each purchase you get a pack of high quality components and page layouts to start building your website
-                            instantly.
+                            Chaque développeur peut, à travers l’Open Source, améliorer ses compétences de développement, acquérir de premières expériences, accroître sa visibilité auprès de la communauté et des pairs, obtenir de meilleures perspectives d'emploi, améliorer les projets d’autres développeurs, apprendre à collaborer, gagner de l'argent.
                         </p>
                         <footer class="blockquote-footer">
-                            CEO of Company Inc <cite class="font-weight-600" title="Source Title">Heather Wrights</cite>
+                            L'équipe de <cite class="font-weight-600" title="Source Title">promoove.io</cite>
                         </footer>
                     </blockquote>
                     <!-- Article -->
                     <article>
                         <!-- Heading -->
-                        <h5 class="h4">The challenge</h5>
+                        <h5 class="h4">Le défi</h5>
                         <!-- Text -->
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
-                        </p>
-                        <p>
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                            Si de nombreuses personnes interrogées ont déclaré coder en Open Source pendant leur temps libre, il semble que tout le monde ne dispose pas d'autant de temps libre, ou n'est tout simplement pas sûr que l'investissement en temps en vaille la peine. Après tout, la plupart des contributeurs ne sont pas payés pour coder en Open Source. Si l'on ajoute à cela le défi de devoir prouver la valeur de leurs contributions, les chances de contribuer à l'open source deviennent vraiment très minces.
                         </p>
                         <!-- Heading -->
-                        <h5 class="h4">Our approach</h5>
+                        <h5 class="h4">Notre approche</h5>
                         <!-- Text -->
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
-                        </p>
-                        <!-- Image -->
-                        <figure class="figure">
-                            <img alt="Image placeholder" src="../../assets/img/theme/light/img-2-1000x800.jpg" class="img-fluid rounded">
-                            <figcaption class="mt-3 text-muted">Figure one: Type here your description</figcaption>
-                        </figure>
-                        <!-- Text -->
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
+                            Promoove est la première plateforme qui offre la possibilité aux développeurs de mettre en avant leurs projets Open Source et d'être rémunéré pour leur travail grâce aux dons. La communauté contribue au développement de chaque projet grâce à un système de votes, de feedbacks, et de soutien financier.
                         </p>
                         <!-- Heading -->
-                        <h5 class="h4">Results</h5>
+                        <h5 class="h4">Les résultats</h5>
                         <!-- Text -->
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
+                            La plateforme a permis de contribuer à l'Open Source, nottament grâce à : 
                         </p>
                         <!-- Milestones -->
                         <div class="row my-5">
@@ -93,16 +70,12 @@
                                             <i data-feather="dollar-sign"></i>
                                         </div>
                                         <h3 class="mt-3 mb-0">
-                                            <span class="counter font-weight-bolder" data-from="0" data-to="10" data-speed="3000" data-refresh-interval="200"></span>
-                                            <span class="counter-extra">k</span>
+                                            <span class="counter font-weight-bolder" data-from="0" data-to="3251" data-speed="3000" data-refresh-interval="200"></span>
+                                            <span class="counter-extra">€</span>
                                         </h3>
                                         <p class="text-muted mb-0">
-                                            Customers
+                                            de dons
                                         </p>
-                                        <span class="d-sm-block pl-2 text-success">
-                                            30%
-                                            <small data-feather="chevron-up"></small>
-                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -113,16 +86,12 @@
                                             <i data-feather="download"></i>
                                         </div>
                                         <h3 class="mt-3 mb-0">
-                                            <span class="counter font-weight-bolder" data-from="0" data-to="53" data-speed="3000" data-refresh-interval="200"></span>
-                                            <span class="counter-extra">k</span>
+                                            <span class="counter font-weight-bolder" data-from="0" data-to="536" data-speed="3000" data-refresh-interval="200"></span>
+                                            <span class="counter-extra"></span>
                                         </h3>
                                         <p class="text-muted mb-0">
-                                            Downloads
+                                            Votes
                                         </p>
-                                        <span class="d-sm-block pl-2 text-success">
-                                            50%
-                                            <small data-feather="chevron-up"></small>
-                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -134,23 +103,18 @@
                                         </div>
                                         <h3 class="mt-3 mb-0">
                                             <span class="counter font-weight-bolder" data-from="0" data-to="98" data-speed="3000" data-refresh-interval="200"></span>
-                                            <span class="counter-extra">%</span>
+                                            <span class="counter-extra"></span>
                                         </h3>
                                         <p class="text-muted mb-0">
-                                            Happy users
+                                            Feedbacks
                                         </p>
-                                        <span class="d-sm-block pl-2 text-success">
-                                            100%
-                                            <small data-feather="chevron-up"></small>
-                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Text -->
                         <p>
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                            À votre tour de présenter vos projets ou de soutenir l'Open Source !
                         </p>
                     </article>
                 </div>
