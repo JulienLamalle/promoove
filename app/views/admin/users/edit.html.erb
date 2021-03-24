@@ -1,0 +1,91 @@
+<section class="section-border border-primary">
+  <div class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center no-gutters min-vh-100">
+      <div class="col-12 col-md-6 col-lg-12 py-8 py-md-11">
+        <!-- Heading -->
+        <h1 class="mb-0 font-weight-bold text-center">
+          Editer le compte de <% if @user.first_name == nil %><%= @user.email %><%else%><%= @user.first_name %><%end%>
+        </h1>
+
+        <!-- Text -->
+        <p class="mb-7 text-center text-muted">
+          Remplissez uniquement les champs que vous souhaitez modifier
+        </p>
+
+        <%= form_for(@user, url: admin_user_fr_path(@user), method: :put) do |f| %>
+          <div class="card card-body card-border card-border-xl border-primary">
+            <div class="m-5">
+              <div class="form-group mb-5">
+                <%= f.label "Adresse e-mail" %><br>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+              </div>
+              <div class="row">
+                <div class="form-group mb-5 col-md-6">
+                  <%= f.label "Prénom" %><br>
+                  <%= f.text_field :first_name, placeholder: "Votre prénom", class: "form-control" %>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <%= f.label "Nom" %><br>
+                  <%= f.text_field :last_name, placeholder: "Votre nom ", class: "form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label "Date de naissance" %> <i class="fe fe-calendar input-prefix ml-1"></i><br>
+                <small>
+                  <%= f.date_select(:date_of_birth, {start_year: 1900, end_year: 2100}, {class: "form-control"}) %>
+                </small>
+              </div>
+            </div>
+            <div class="form-group mx-5">
+              <div class="form-group">
+                <%= f.label "Parcours professionnel" %><br>
+                <%= f.text_area :professional_background, placeholder: "Parcours professionnel", class: "form-control"%>
+              </div>
+            </div>
+            <div class="form-group mx-5">
+              <div class="form-group">
+                <%= f.label "Description" %><br>
+                <%= f.text_area :description, placeholder: "Description", class: "form-control"%>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-col justify-content-center">
+            <div class="row">
+              <div class="col">
+                <div class="form-group mb-5">
+                  <%= f.label "Lien Github" %><br>
+                  <%= f.text_field :github_link, placeholder: "Lien Github", class: "form-control" %>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group mb-5">
+                  <%= f.label "Lien Linkedin" %><br>
+                  <%= f.text_field :linkedin_link, placeholder: "Lien Linkedin", class: "form-control" %>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group mb-5">
+                  <%= f.label "Lien Gitlab" %><br>
+                  <%= f.text_field :gitlab_link, placeholder: "Lien Gitlab", class: "form-control" %>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group mb-5">
+                  <%= f.label "Lien Twitter" %><br>
+                  <%= f.text_field :twitter_link, placeholder: "Lien Twitter", class: "form-control" %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-3 mb-5 mt-4">
+              <%= f.submit "Modifier le compte", class: "btn bg-gradient-primary lift btn-block" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

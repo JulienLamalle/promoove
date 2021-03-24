@@ -52,6 +52,13 @@
           <li class="nav-item nav-item-spaced" data-toggle="hover">
             <%=link_to "Se déconnecter", destroy_user_session_path, class:"nav-link", method: :delete  %>
           </li>
+          <% if current_user.is_admin %>
+            <li class="nav-item nav-item-spaced" data-toggle="hover">
+              <%=link_to admin_index_path, class:"nav-link" do %>
+                <p class="d-inline mr-2">Administateur</p><i class="fe fe-lock"></i>
+              <% end %>
+            </li>
+          <% end %>
           <%else%>
           <li class="nav-item nav-item-spaced" data-toggle="hover">
             <%=link_to "S'inscrire", new_user_registration_path, class:"nav-link"%>

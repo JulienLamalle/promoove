@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     resources :comments
     resources :comment_answers
     resources :languages, only: [:index, :show]
+    resources :admin, only: [:index]
+    namespace :admin do 
+      resources :projects, only: [:index]
+      resources :users, except: [:show, :create]
+      resources :donations, only: [:index]
+    end
   end
   
 end

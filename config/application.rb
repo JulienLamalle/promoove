@@ -12,6 +12,7 @@ module Promoove
     config.load_defaults 5.2
     config.i18n.default_locale = :fr
     config.i18n.available_locales = [:fr, :en]
+    config.autoload_paths << "#{Rails.root}/lib"
 
     # => This is an example of ALL available config options
     # => You're able to see exactly how it works here:
