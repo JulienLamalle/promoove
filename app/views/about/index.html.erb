@@ -1,123 +1,123 @@
 <!-- Main content -->
-    <section class="section-half-rounded">
-        <div class="jumbotron section-inner left-0 rounded-right bg-primary overflow-hidden col-lg-5">
-            <%= image_tag "backgrounds/about.jpg",  alt: "image cover", class: "img-as-bg" %>
+<section class="section-half-rounded">
+  <div class="jumbotron section-inner left-0 rounded-right bg-primary overflow-hidden col-lg-5">
+    <%= image_tag "backgrounds/about.jpg",  alt: "image cover", class: "img-as-bg" %>
+  </div>
+  <div class="container text-center text-lg-left py-5">
+    <div class="row">
+      <div class="col-lg-7 ml-auto">
+        <div class="card bg-dark shadow-lg border-0 mb-0">
+          <div class="px-5 py-6">
+            <h2 class="badge badge-primary badge-pill">Le concept</h2>
+            <h2 class="h2 lh-180 text-white font-weight-bold mt-3 mb-3">Soutenir l'Open Source en France grâce aux dons et améliorer la visibilité de ses développeuses et développeurs. </h2>
+          </div>
         </div>
-        <div class="container text-center text-lg-left py-5">
-            <div class="row">
-                <div class="col-lg-7 ml-auto">
-                    <div class="card bg-dark shadow-lg border-0 mb-0">
-                        <div class="px-5 py-6">
-                            <a href="#" class="badge badge-primary badge-pill">Le concept</a>
-                            <h2 class="h2 lh-180 text-white font-weight-bold mt-3 mb-3">L'objectif de cette plateforme est de soutenir l'Open Source en France grâce aux dons et d'améliorer la visibilité de ses développeurs. </h2>
-                        </div>
-                    </div>
-                    <div class="mt-4 text-right">
-                        <span class="badge badge-white badge-lg badge-pill shadow font-weight-light">Temps de lecture : <strong>3 min</strong></span>
-                    </div>
-                </div>
-            </div>
+        <div class="mt-4 text-right">
+          <span class="badge badge-white badge-lg badge-pill shadow font-weight-light">Temps de lecture : <strong>3 min</strong></span>
         </div>
-    </section>
-    <section class="slice">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-9">
-                    <!-- Text -->
-                    <p class="lh-190">
-                        L'open source ne fait pas de distinction de race, de sexe ou de classe. Il n'a pas de frontières, de comptes financiers ou d'affiliations politiques. L'open source est une affaire de personnes, de collaboration et de contribution. Les connaissances sont partagées et l'ensemble de la communauté bénéficie de l'innovation collective.
+      </div>
+    </div>
+  </div>
+</section>
+<section class="slice">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <!-- Text -->
+        <p class="lh-190">
+          L'open source ne fait pas de distinction de race, de sexe ou de classe. Il n'a pas de frontières, de comptes financiers ou d'affiliations politiques. L'open source est une affaire de personnes, de collaboration et de contribution. Les connaissances sont partagées et l'ensemble de la communauté bénéficie de l'innovation collective.
+        </p>
+        <!-- Blocquote -->
+        <% if cookies[:theme] == "dark" %>
+          <blockquote class="blockquote blockquote-card my-5 py-5 px-5 rounded-right">
+        <% else %>
+          <blockquote class="blockquote blockquote-card my-5 py-5 px-5 rounded-right bg-soft-primary">
+        <% end %>
+            <h5 class="h2 font-weight-700 light">Pourquoi l'Open Source</h5>
+            <p class="lead">
+              Chaque développeuse et développeur peut, à travers l’Open Source, améliorer ses compétences de développement, acquérir de premières expériences, accroître sa visibilité auprès de la communauté et des pairs, obtenir de meilleures perspectives d'emploi, améliorer les projets d’autres développeurs, apprendre à collaborer, gagner de l'argent.
+            </p>
+            <footer class="blockquote-footer">
+              L'équipe de <cite class="font-weight-600" title="Source Title">promoove.io</cite>
+            </footer>
+          </blockquote>
+          <!-- Article -->
+        <article>
+          <!-- Heading -->
+          <h5 class="h4">Le problème</h5>
+          <!-- Text -->
+          <p>
+            Si de nombreuses personnes interrogées ont déclaré développer en Open Source pendant leur temps libre, il semble que très peu n'en dispose, ou n'est tout simplement sûr que l'investissement en temps en vaille la peine. Après tout, la plupart des contributeurs ne sont pas payés pour coder en Open Source. Si l'on ajoute à cela le défi de devoir prouver la valeur de leurs contributions, les chances de contribuer à l'open source deviennent vraiment très minces.
+          </p>
+          <!-- Heading -->
+          <h5 class="h4">Notre approche</h5>
+          <!-- Text -->
+          <p>
+            Promoove est la première plateforme qui offre la possibilité aux développeuses et développeurs de mettre en avant leurs projets Open Source et d'être rémunéré pour leur travail grâce aux dons. La communauté contribue au développement de chaque projet grâce à un système de votes, de feedbacks, et de soutien financier.
+          </p>
+          <!-- Heading -->
+          <h5 class="h4">Les résultats</h5>
+          <!-- Text -->
+          <p>
+            La plateforme a permis de contribuer à l'Open Source, nottament grâce à : 
+          </p>
+          <!-- Milestones -->
+          <div class="row my-5">
+            <div class="col-sm-4">
+              <div class="card shadow-lg rounded-lg border-0 mb-sm-0">
+                <div class="p-4 text-center">
+                  <div class="icon bg-warning text-white rounded-circle icon-shape">
+                    <i data-feather="dollar-sign"></i>
+                  </div>
+                  <h3 class="mt-3 mb-0">
+                    <span class="counter font-weight-bolder" data-from="0" data-to="3251" data-speed="3000" data-refresh-interval="200"></span>
+                    <span class="counter-extra">€</span>
+                  </h3>
+                    <p class="text-muted mb-0">
+                      de dons
                     </p>
-                    <!-- Blocquote -->
-                    <% if cookies[:theme] == "dark" %>
-                      <blockquote class="blockquote blockquote-card my-5 py-5 px-5 rounded-right">
-                    <% else %>
-                      <blockquote class="blockquote blockquote-card my-5 py-5 px-5 rounded-right bg-soft-primary">
-                    <% end %>
-                        <h5 class="h2 font-weight-700 light">Pourquoi l'Open Source</h5>
-                        <p class="lead">
-                            Chaque développeur peut, à travers l’Open Source, améliorer ses compétences de développement, acquérir de premières expériences, accroître sa visibilité auprès de la communauté et des pairs, obtenir de meilleures perspectives d'emploi, améliorer les projets d’autres développeurs, apprendre à collaborer, gagner de l'argent.
-                        </p>
-                        <footer class="blockquote-footer">
-                            L'équipe de <cite class="font-weight-600" title="Source Title">promoove.io</cite>
-                        </footer>
-                    </blockquote>
-                    <!-- Article -->
-                    <article>
-                        <!-- Heading -->
-                        <h5 class="h4">Le défi</h5>
-                        <!-- Text -->
-                        <p>
-                            Si de nombreuses personnes interrogées ont déclaré coder en Open Source pendant leur temps libre, il semble que tout le monde ne dispose pas d'autant de temps libre, ou n'est tout simplement pas sûr que l'investissement en temps en vaille la peine. Après tout, la plupart des contributeurs ne sont pas payés pour coder en Open Source. Si l'on ajoute à cela le défi de devoir prouver la valeur de leurs contributions, les chances de contribuer à l'open source deviennent vraiment très minces.
-                        </p>
-                        <!-- Heading -->
-                        <h5 class="h4">Notre approche</h5>
-                        <!-- Text -->
-                        <p>
-                            Promoove est la première plateforme qui offre la possibilité aux développeurs de mettre en avant leurs projets Open Source et d'être rémunéré pour leur travail grâce aux dons. La communauté contribue au développement de chaque projet grâce à un système de votes, de feedbacks, et de soutien financier.
-                        </p>
-                        <!-- Heading -->
-                        <h5 class="h4">Les résultats</h5>
-                        <!-- Text -->
-                        <p>
-                            La plateforme a permis de contribuer à l'Open Source, nottament grâce à : 
-                        </p>
-                        <!-- Milestones -->
-                        <div class="row my-5">
-                            <div class="col-sm-4">
-                                <div class="card shadow-lg rounded-lg border-0 mb-sm-0">
-                                    <div class="p-4 text-center">
-                                        <div class="icon bg-warning text-white rounded-circle icon-shape">
-                                            <i data-feather="dollar-sign"></i>
-                                        </div>
-                                        <h3 class="mt-3 mb-0">
-                                            <span class="counter font-weight-bolder" data-from="0" data-to="3251" data-speed="3000" data-refresh-interval="200"></span>
-                                            <span class="counter-extra">€</span>
-                                        </h3>
-                                        <p class="text-muted mb-0">
-                                            de dons
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card shadow-lg rounded-lg border-0 mb-sm-0">
-                                    <div class="p-4 text-center">
-                                        <div class="icon bg-danger text-white rounded-circle icon-shape">
-                                            <i data-feather="download"></i>
-                                        </div>
-                                        <h3 class="mt-3 mb-0">
-                                            <span class="counter font-weight-bolder" data-from="0" data-to="536" data-speed="3000" data-refresh-interval="200"></span>
-                                            <span class="counter-extra"></span>
-                                        </h3>
-                                        <p class="text-muted mb-0">
-                                            Votes
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card shadow-lg rounded-lg border-0 mb-sm-0">
-                                    <div class="p-4 text-center">
-                                        <div class="icon bg-success text-white rounded-circle icon-shape">
-                                            <i data-feather="users"></i>
-                                        </div>
-                                        <h3 class="mt-3 mb-0">
-                                            <span class="counter font-weight-bolder" data-from="0" data-to="98" data-speed="3000" data-refresh-interval="200"></span>
-                                            <span class="counter-extra"></span>
-                                        </h3>
-                                        <p class="text-muted mb-0">
-                                            Feedbacks
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Text -->
-                        <p>
-                            À votre tour de présenter vos projets ou de soutenir l'Open Source !
-                        </p>
-                    </article>
                 </div>
+              </div>
             </div>
-        </div>
-    </section>
+            <div class="col-sm-4">
+              <div class="card shadow-lg rounded-lg border-0 mb-sm-0">
+                <div class="p-4 text-center">
+                  <div class="icon bg-danger text-white rounded-circle icon-shape">
+                    <i data-feather="download"></i>
+                  </div>
+                  <h3 class="mt-3 mb-0">
+                    <span class="counter font-weight-bolder" data-from="0" data-to="536" data-speed="3000" data-refresh-interval="200"></span>
+                    <span class="counter-extra"></span>
+                  </h3>
+                  <p class="text-muted mb-0">
+                    Votes
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card shadow-lg rounded-lg border-0 mb-sm-0">
+                <div class="p-4 text-center">
+                  <div class="icon bg-success text-white rounded-circle icon-shape">
+                    <i data-feather="users"></i>
+                  </div>
+                  <h3 class="mt-3 mb-0">
+                    <span class="counter font-weight-bolder" data-from="0" data-to="98" data-speed="3000" data-refresh-interval="200"></span>
+                    <span class="counter-extra"></span>
+                  </h3>
+                  <p class="text-muted mb-0">
+                    Feedbacks
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Text -->
+          <p>
+            À votre tour de présenter vos projets ou de soutenir l'Open Source !
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
