@@ -54,7 +54,7 @@
           </li>
           <% if current_user.is_admin %>
             <li class="nav-item nav-item-spaced" data-toggle="hover">
-              <%=link_to admins_path, class:"nav-link" do %>
+              <%=link_to admin_index_path, class:"nav-link" do %>
                 <p class="d-inline mr-2">Administateur</p><i class="fe fe-lock"></i>
               <% end %>
             </li>
