@@ -13,8 +13,7 @@ Rails.application.config.assets.paths += [
 Rails.application.config.assets.paths += [
   Rails.root.join('vendor', 'assets', 'stylesheets').to_s
 ]
-Rails.application.config.assets.precompile += %w( toast.js )
-Rails.application.config.assets.precompile += %w( application_dark.css )
+Rails.application.config.assets.precompile += ['toast.js' , 'application_dark.css', 'carousel.js', 'comment_answer.js']
 
 
 # Precompile additional assets.

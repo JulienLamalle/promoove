@@ -10,8 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require carousel.js
-//= require comment_answer.js
 //= require in-view.min.js
 //= require bootstrap.js
 //= require bootstrap.bundle.js

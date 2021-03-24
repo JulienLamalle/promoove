@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     @categories = @project.categories
     @languages = @project.languages
     @collaborators = @project.users
-    @comments = @project.comments
+    @comments = @project.comments.includes(:comment_answers, :user)
   end
 
   def new
