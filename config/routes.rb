@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :users, only: [:show]
     resources :comments
     resources :languages, only: [:index, :show]
+    resources :admins, only: [:index]
+    namespace :admin do 
+
+    end
   end
   
 end
