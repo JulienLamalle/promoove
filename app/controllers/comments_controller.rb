@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
 
-  def def new
+  def new
     @comment = Comment.new
   end
   
@@ -13,9 +13,13 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params.merge(user: current_user, project: Project.find(params[:project_id])))
     if @comment.save
-      flash[:success] = "Commentaire créé!"
-    else
-      flash[:error] = @comment.errors.messages
+      respond_to do |format|
+        format.html {
+          flash[:success] = "Commentaire créé!"
+          redirect_to project_fr_path(Comment.find(params[:project_id]))
+        }
+        format.js {}
+      end
     end
   end
 
