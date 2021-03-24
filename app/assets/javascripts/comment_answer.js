@@ -5,5 +5,5 @@ document.querySelectorAll(".display_answers").forEach(button => {
     }else if(document.getElementById(`answers-${button.id}`).style.display == "block"){
       document.getElementById(`answers-${button.id}`).style.display = "none";
     }
-  })
-})
+  });
+});
