@@ -48,3 +48,4 @@
 //= require quick-website.js
 //= require orders.js
 //= require carousel.js
+//= require comment_answer.js

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :terms, only: [:index]
     resources :users, only: [:show]
     resources :comments
+    resources :comment_answers
   end
   
 end
