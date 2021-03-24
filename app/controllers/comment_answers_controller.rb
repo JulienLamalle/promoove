@@ -11,7 +11,6 @@ class CommentAnswersController < ApplicationController
   
 
   def create
-    puts("###############################", params)
     @comment_answer = CommentAnswer.new(comment_answer_params.merge(user: current_user, comment: Comment.find(params[:comment_id])))
     if @comment_answer.save
       flash[:success] = "Commentaire créé!"
