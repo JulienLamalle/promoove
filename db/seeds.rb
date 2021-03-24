@@ -21,8 +21,6 @@ Category.destroy_all
 Category.reset_pk_sequence
 ProjectCategory.destroy_all
 ProjectCategory.reset_pk_sequence
-LanguageMedia.destroy_all
-LanguageMedia.reset_pk_sequence
 Language.destroy_all
 Language.reset_pk_sequence
 ProjectLanguage.destroy_all
@@ -39,7 +37,8 @@ CommentUpvote.reset_pk_sequence
 # Arrays of data
 media_type = ["text", "image", "videos", "son"]
 category = ["Intelligence Artificielle", "BTP", "Santé", "FinTech", "Sport", "Entreprise", "Education", "IT"]
-languages = ["python", "javascript", "ruby", "C#", "HTML"]
+languages = ["Python", "Javascript", "Ruby", "Php", "HTML", "C++", "Java"]
+languages_pictures = ["python.svg", "javascript.svg", "ruby.svg" , "php.svg" , "html.svg", "c-plus-plus.svg", "java.svg"]
 picture_url = ["adobe-id.svg" , "gmail.svg", "paypal.svg", "ubuntu.svg", "sketch.svg", "play-store.svg", "outlook.svg", "icloud.svg"]
 
 # Users
@@ -55,8 +54,8 @@ picture_url = ["adobe-id.svg" , "gmail.svg", "paypal.svg", "ubuntu.svg", "sketch
     )
     user.update(
         email: "#{user.first_name}.#{user.last_name}@yopmail.com",
-        github_link: "github.io/#{user.first_name}_#{user.last_name}",
-        gitlab_link: "gitlab.io/#{user.first_name}_#{user.last_name}",
+        github_link: "github.com/#{user.first_name}_#{user.last_name}",
+        gitlab_link: "gitlab.com/#{user.first_name}_#{user.last_name}",
         twitter_link: "twitter.com/#{user.first_name}_#{user.last_name}",
         linkedin_link: "linkedin.com/#{user.first_name}_#{user.last_name}"
     )
@@ -147,19 +146,12 @@ puts "category created"
 end
 puts "project category"
 
-# Language Media
-5.times do
-    language_media = LanguageMedia.create(data_type: 'image',
-    aws_link: Faker::Internet.url(host: 'aws.com')
-    )
-end
-puts "language media"
-
 # Language
 i = 0
 languages.size.times do
-    language = Language.create(name: languages[i],
-    language_media: LanguageMedia.last
+    language = Language.create(
+    name: languages[i],
+    picture_url: "icons-languages/" + languages_pictures[i]
     )
     i += 1
 end

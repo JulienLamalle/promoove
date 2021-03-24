@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show]
     resources :comments
     resources :comment_answers
+    resources :languages, only: [:index, :show]
   end
   
 end

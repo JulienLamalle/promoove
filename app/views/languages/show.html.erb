@@ -2,9 +2,9 @@
   <div class="container pt-5 pt-lg-6">
     <div class="row justify-content-center">
       <div class="col-lg-7 text-center">
-        <h1 class="display-4 text-white mb-4"><%= @category.name %></h1>
+        <h1 class="display-4 text-white mb-1"><%= @language.name.capitalize %> <%= image_tag @language.picture_url %></h1>
         <p class="lh-190 text-white opacity-8 mb-5">
-          Postez votre projet, attribuez-lui une catégorie et apparaissez parmi les projets les plus soutenus !
+          Postez votre projet, attribuez-lui un langage et apparaissez parmi les projets les plus soutenus !
         </p>
       </div>
     </div>
@@ -64,7 +64,7 @@
         <% else %>
           <div class="mx-auto">
             <%= image_tag "empty_.svg", class: "animated fadeIn mb-5" %>
-            <h5 class="text-white text-center">Oh oh! On dirait qu'il n'y a pas encore de projet dans cette catégorie !</h5>
+            <h5 class="text-white text-center">Oh oh! On dirait qu'il n'y a pas encore de projet utilisant ce langage !</h5>
           </div>
         <% end %>
       </div>
@@ -76,11 +76,11 @@
   <div class="container d-flex align-items-center position-relative zindex-100">
     <div class="col px-0">
       <div class="row row-grid justify-content-around align-items-center">
-        <div class="col-lg-9">
+        <div class="col-lg-10 py-5">
           <div class="text-center">
-            <h1 class="text-white mb-3">Découvrez certaines de nos autres catégories</h1>
+            <h1 class="text-white mb-3">Découvrez certains des autres langages utilisés</h1>
             <p class="lead text-white lh-180 w-75 mx-auto mb-3">
-              Trouvez la catégorie idéale pour votre projet, publiez-le et recevez le soutien d'une communauté bienveillante et solidaire !
+            Choisissez le langage idéal pour votre projet, publiez-le et recevez le soutien d'une communauté bienveillante et solidaire !
             </p>
           </div>
         </div>
@@ -92,20 +92,20 @@
 <section class="slice slice-lg">
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <% @categories.map do |category| %>
+      <% @languages.map do |language| %>
         <div class="col-xl-2 col-lg-4 col-sm-6">
-          <%= link_to category_path(category) do  %>
+          <%= link_to language_path(language) do  %>
             <div class="card hover-shadow-lg hover-translate-y-n3">
               <div class="card-body py-5 text-center h-100">
                 <div class="img-fluid mb-4 w-50 mx-auto">
-                  <%= image_tag category.picture_url, alt: "picture category" %>
+                  <%= image_tag language.picture_url %>
                 </div>
                 <!-- Info -->
-                <h5 class="h6 mt-4 mb-1"><%= category.name %></h5>
-                <% if category.projects.count > 1 %>
-                  <p class="text-muted text-sm mb-0"><%= category.projects.count %> projets à découvrir</p>
+                <h5 class="h6 mt-4 mb-1"><%= language.name %></h5>
+                <% if language.projects.count > 1 %>
+                  <p class="text-muted text-sm mb-0"><%= language.projects.count %> projets à découvrir</p>
                 <% else %>
-                  <p class="text-muted text-sm mb-0"><%= category.projects.count %> projet à découvrir</p>
+                  <p class="text-muted text-sm mb-0"><%= language.projects.count %> projet à découvrir</p>
                 <% end %>
               </div>
             </div>

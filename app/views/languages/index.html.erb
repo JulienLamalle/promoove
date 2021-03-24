@@ -5,7 +5,7 @@
 
         <!-- Headin -->
         <h1 class="display-1 font-weight-bold">
-          Nos catégories.
+          Les langages.
         </h1>
 
         <!-- Text -->
@@ -14,9 +14,9 @@
         </p>
 
         <nav class="nav justify-content-center">
-          <% @categories.each do |category| %>
-            <%=link_to category_path(category), class: "badge badge-em badge-pill mr-2 mb-3 bg-gradient-info" do%>
-              <span class="h6 text-uppercase text-white"><%= category.name %></span>
+          <% @languages.each do |language| %>
+            <%=link_to language_path(language), class: "badge badge-em badge-pill mr-2 mb-3 bg-gradient-info" do%>
+              <span class="h6 text-uppercase text-white"><%= language.name %></span>
             <% end %>
           <% end %>
         </nav>

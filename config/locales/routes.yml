@@ -16,6 +16,7 @@ en:
     sign_out: sign_out
     cancel: cancel
     static_pages: static_pages
+    languages: languages
 
 fr:
   routes:
@@ -35,3 +36,4 @@ fr:
     sign_out: se-deconnecter
     cancel: annuler
     static_pages: pages-statiques
+    languages: langages
