@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_130855) do
+ActiveRecord::Schema.define(version: 2021_03_23_062911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,19 +171,13 @@ ActiveRecord::Schema.define(version: 2021_03_21_130855) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "language_media", force: :cascade do |t|
-    t.string "data_type"
-    t.string "aws_link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "languages", force: :cascade do |t|
     t.string "name"
-    t.bigint "language_media_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["language_media_id"], name: "index_languages_on_language_media_id"
+    t.string "slug"
+    t.text "picture_url"
+    t.index ["slug"], name: "index_languages_on_slug", unique: true
   end
 
   create_table "media", force: :cascade do |t|
