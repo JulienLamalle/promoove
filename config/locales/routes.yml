@@ -17,6 +17,7 @@ en:
     cancel: cancel
     static_pages: static_pages
     languages: languages
+    about: about
 
 fr:
   routes:
@@ -37,3 +38,4 @@ fr:
     cancel: annuler
     static_pages: pages-statiques
     languages: langages
+    about: à-propos
