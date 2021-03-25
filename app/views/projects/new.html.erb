@@ -1,0 +1,77 @@
+<!-- Main content -->
+<section>
+    <div class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center min-vh-100">
+            <div class="col-md-8 col-lg-5 py-6">
+                <div>
+                    <div class="mb-5 text-center">
+                        <h6 class="h3 mb-1">Créer un projet</h6>
+                        <p class="text-muted mb-0">Recevez des dons, gagnez de la visibilité et trouvez de l'aide sur Promoove.io</p>
+                    </div>
+                    <span class="clearfix"></span>
+                      <%= form_for(@project) do |f| %>
+                        <div class="form-group">
+                          <%= f.label "Nom de votre projet", class:"form-control-label" %>
+                            <div class="input-group">
+                              <%= f.text_field :name, class:"form-control", id:"name", placeholder:"Promoove.io" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label "Décrivez votre projet en quelques mots", class:"form-control-label" %>
+                            <div class="input-group">
+                                <%= f.text_field :short_description, class:"form-control", id:"short_description", placeholder:"Promouvoir le monde de l'open source" %>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <label class="form-control-label">Password</label>
+                                </div>
+                                <div class="mb-2">
+                                    <a href="#" class="small text-muted text-underline--dashed border-primary" data-toggle="password-text" data-target="#input-password">Show password</a>
+                                </div>
+                            </div>
+                            <div class="input-group input-group-merge">
+                                <input type="password" class="form-control form-control-prepend" id="input-password" placeholder="********">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i data-feather="key"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-4">
+                            <div class="custom-control custom-checkbox mb-3">
+                                <input type="checkbox" class="custom-control-input" id="check-terms">
+                                <label class="custom-control-label" for="check-terms">I agree to the <a href="../../pages/utility/terms.html">terms and conditions</a></label>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <button type="button" class="btn btn-block btn-primary">Create my account</button>
+                        </div>
+                      <% end %>
+                    <div class="py-3 text-center">
+                        <span class="text-xs text-uppercase">or</span>
+                    </div>
+                    <!-- Alternative login -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <a href="#" class="btn btn-block btn-neutral btn-icon mb-3 mb-sm-0">
+                                <span class="btn-inner--icon"><img src="../../assets/img/icons/brands/github.svg" alt="Image placeholder"></span>
+                                <span class="btn-inner--text">Github</span>
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="#" class="btn btn-block btn-neutral btn-icon">
+                                <span class="btn-inner--icon"><img src="../../assets/img/icons/brands/google.svg" alt="Image placeholder"></span>
+                                <span class="btn-inner--text">Google</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Links -->
+                    <div class="mt-4 text-center"><small>Already have an acocunt?</small>
+                        <a href="login-basic.html" class="small font-weight-bold">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
