@@ -1,1 +1,48 @@
-<h1>Admin donations</h1>
+<h1 class="py-7 row justify-content-center mb-0">Voir les dons effectués<i class="fe fe-money ml-3 text-success row align-content-center"></i></h1>
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <div class="col col-md-12 text-center">
+      <div class="row justify-content-center align-items-center">
+        <div clas="col-md-10">
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Projet</th>
+                  <th scope="col">Contributeur</th>
+                  <th scope="col">Montant</th>
+                  <th scope="col">Date du don</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @donations.each do |donation| %>
+                  <tr id="<%=donation.id %>">
+                    <td><%= donation.id %></td>
+                    <td>
+                      <%= link_to project_path(donation.project) do %> 
+                        <%= donation.project.name %>
+                      <% end %>
+                    </td>
+                    <td>
+                      <%= link_to user_path(donation.user) do %> 
+                        <%= donation.user.email %>
+                      <% end %>
+                    </td>
+                    <td><%= donation.amount %> €</td>
+                    <td><%= donation.created_at.strftime('%d/%m/%Y') %></td>
+                  </tr>
+                <% end %>
+                <%= will_paginate @donations, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
