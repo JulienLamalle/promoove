@@ -166,6 +166,11 @@
               </div>
             <% end %>
           </div>
+        <% else %>
+          <div class="row justify-content-center py-5">
+            <%= image_tag "empty_.svg", class: "animated fadeIn mb-5" %>
+            <h5 class="text-white text-center">Oh oh ! On dirait que cet utilisateur n'a pas encore de collaboration à afficher ici !</h5>
+          </div>
         <% end %>
       </div>
       <div class="col-lg-9 mt-4">
