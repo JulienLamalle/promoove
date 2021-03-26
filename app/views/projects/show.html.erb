@@ -21,7 +21,7 @@
                       <%= @project.name %>
                     </h2>
                   </div>
-                  <div class="d-flex flex-wrap mt-2">
+                  <div class="d-flex flex-wrap mt-4">
                     <% @categories&.each do |category| %>
                       <%= link_to "#{category.name}", category_path(category), class: "badge badge-soft-primary badge-pill mx-2"%>
                     <% end%>
@@ -37,7 +37,7 @@
                       <%= @project.long_description %>
                     </p>
                     <h4 class="mb-2">Languages</h4>
-                    <div class="d-flex flex-wrap mb-3">
+                    <div class="d-flex flex-wrap my-3">
                       <% @languages&.each do |language| %>
                         <%= link_to "#{language.name}", language_path(language), class: "badge badge-soft-primary badge-pill mx-2"%>
                       <% end%>

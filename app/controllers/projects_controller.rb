@@ -9,8 +9,8 @@ class ProjectsController < ApplicationController
     @project = Project.friendly.find(params[:id])
     @categories = @project.categories
     @languages = @project.languages
-    @collaborators = @project.users
-    @comments = @project.comments.includes(:comment_answers, :user).order(created_at: :asc)
+    @collaborators = @project.users.includes([:profile_picture_attachment])
+    @comments = @project.comments.includes(:comment_answers, :user => [:profile_picture_attachment]).order(created_at: :asc)
   end
 
   def new
