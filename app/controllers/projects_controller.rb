@@ -16,6 +16,17 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @user = current_user
+    @categories = Category.all
+    @languages = Language.all
+  end
+
+  def create
+    @project = Project.new(project_params)
+    if @project.save
+      flash[:success] = "Projet créé, vous serez alerté lorsqu'il sera validé"
+    else
+      flash[:error] = @project.errors.messages
+    end
   end
 
   def edit
