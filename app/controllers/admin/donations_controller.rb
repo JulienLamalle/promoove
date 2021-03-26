@@ -3,6 +3,6 @@ class Admin::DonationsController < ApplicationController
   before_action :check_if_admin
 
   def index 
-    @donations = Donation.all
+    @donations = Donation.includes(:user, :project).paginate(page: params[:page], per_page: 20)
   end
 end
