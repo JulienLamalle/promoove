@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
     @projects = Project.includes(:project_languages, :languages).all.sorted.validated
     @donations = Donation.includes(:project, :user).all.order(created_at: :desc).take(10)
     @languages = Language.all
+    @categories = Category.all
   end
 
   def show
