@@ -46,10 +46,22 @@
                               <%= f.number_field :value_of_project, class:"form-control", id:"value_of_project", placeholder:"2000" %>
                             </div>
                         </div>
-                        <div class="list-group">
-                          <%= f.label "Sélectionnez les langages principaux de votre projet", class:"form-control-label" %>
-                          <div class="input-group">
-                            <%= f.collection_select :languages, @languages.order(:name), :id, :name, class:"custom-select", id:"languages", placeholder:"Ruby" %>
+                        <div class="list-group list-group-flush">
+                          <label class="form-control-label">Sélectionnez les langages principaux de votre projet</label>
+                            <li class="list-group-item">
+                              <div class="row mx-n2">
+                                <div class="col-12 col-lg-4 px-2">
+                                  <div class="form-group">
+                                    <select class="custom-select">
+                                      <% @languages.map do |language| %>
+                                        <option><%= language.name %></option>
+                                      <% end %>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                            <!--<%= f.collection_select :languages, @languages.order(:name), :id, :name, id:"languages" %>-->
                           </div>
                         </div>
                         <div class="my-4">
