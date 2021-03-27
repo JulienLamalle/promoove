@@ -2,7 +2,12 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:edit, :update]
 
   def index
-    @projects = Project.all
+    @last_week_projects = Project.includes(:project_languages, :languages).created_in(1.week.ago.to_date, Time.now).validated.sorted
+    @last_month_projects = Project.includes(:project_languages, :languages).created_in(1.month.ago.to_date, Time.now).validated.sorted
+    @projects = Project.includes(:project_languages, :languages).all.sorted.validated
+    @donations = Donation.includes(:project, :user).all.order(created_at: :desc).take(10)
+    @languages = Language.all
+    @categories = Category.all
   end
 
   def show
@@ -18,6 +23,15 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+  end
+
+  def create
+    @project = Project.new(project_params)
+    if @project.save
+      Collaboration.create(user_id: current_user.id, project_id: @project.id, role_id: Role.first)
+      flash[:info] = "Votre projet a été créé et est visible uniquement par vous pour le moment, vous pouvez le déclarer comme complet en vous rendant dessus"
+      redirect_to root_path
+    end
   end
 
   def update

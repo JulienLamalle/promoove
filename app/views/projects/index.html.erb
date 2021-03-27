@@ -24,17 +24,17 @@
       </div>
       <div class="col-12 col-md-6 col-lg-6 order-md-1 pr-md-5">
         <!-- Surtitle -->
-        <h6 class="">- Construisez, Partagez, Soutenez</h6>
+        <h6 class="animated fadeInUp">- Construisez, Partagez, Soutenez</h6>
         <!-- Heading -->
-        <h1 class="h1 mb-4">
+        <h1 class="h1 mb-4 animated fadeInUp delay-0-5s">
           Devenez un acteur de l'<strong>Open Source</strong>.
         </h1>
         <!-- Text -->
-        <p class="lead text-muted">
+        <p class="lead text-muted animated fadeInUp delay-1s">
           Découvrez les meilleurs projets Open Source, votez pour vos projets préférés, soutenez les développeurs à travers des dons.
         </p>
         <!-- Buttons -->
-        <div class="mt-5">
+        <div class="mt-5 animated fadeInUp delay-1-5s">
           <a href="#" class="btn btn-primary">
             Les projets
           </a>
@@ -87,437 +87,259 @@
   </div>
 </section>
 
-<div class="slice slice-sm bg-section-secondary">
-  <div class="container">
+<div class="slice slice-sm bg-section-secondary row">
+  <div class="container-fluid mt-5">
     <div class="row justify-content-center">
-      <div class="col-lg-9">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="mb-5">
-              <!-- 2FA options -->
-              <div class="card">
-                <div class="card-header">
-                  <!-- Title -->
-                  <h5 class="h6 mb-0">Les meilleurs projets de la semaine</h5>
-                  <!-- Text -->
-                  <p class="text-sm mb-0">
-                    Keep your account secure by enabling two-factor authentication.
-                  </p>
+      <main class="col-lg-7">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="mb-5">
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="h6 mb-0">Les meilleurs projets de la semaine</h5>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <% @last_week_projects&.take(15).each do |project| %>
+                      <li class="list-group-item">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <%= link_to image_tag("https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80.png", :alt => "Image placeholder", :class => "avatar rounded-circle"), project_path(project) %>
+                          </div>
+                          <div class="col md-6">
+                            <h6 class="mb-0">
+                              <%= link_to project.name, project_path(project)%>
+                            </h6>
+                            <p class="card-text small text-muted">
+                              <%= project.short_description %>
+                            </p>
+                          </div>
+                          <h6 class="col-md-2 text-center">
+                            <%  project.languages.map do |language| %>
+                              <p class="small d-inline"><%= image_tag language.picture_url, style: "width: 25px; position: relative; top: -2px", class: "mr-1"%></p>
+                            <% end %>
+                          </h6>
+                          <div class="col-auto">
+                            <div class="actions ml-3">
+                              <h6 class="action-item mr-2">
+                                <%= link_to project_path(project), class: "badge badge-light badge-pill" do %>
+                                  <p class="d-inline mr-2">Voir le projet</p>
+                                  <i class="fe fe-eye"></i>
+                                <% end %>
+                              </h6>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div class="actions text-center ml-3">
+                              <h6 class="action-item mr-2">
+                                <%= link_to project_path(project) do %>
+                                  <%= project.project_upvotes_count %>
+                                  votes <i class="fe fe-arrow-up ml-1"></i>
+                                <% end %>
+                              </h6>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    <% end %>
+                  </ul>
                 </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <%= image_tag "svg/misc/google-auth.svg", class:"img-fluid", width: "40px" %>
-                      </div>
-                      <div class="col ml-n2">
-                        <h6 class="text-sm mb-0">
-                          Google Auth
-                        </h6>
-                        <p class="card-text small text-muted">
-                          iPhone
-                        </p>
-                      </div>
-                      <div class="col-md d-none d-md-block">
-                        <span class="text-muted">Added:</span> 2019-05-16 11:05:08
-                      </div>
-                      <div class="col-auto">
-                        <div class="actions text-right ml-3">
-                          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Invoice">
-                            <i data-feather="trash-2"></i>
-                          </a>
-                          <div class="dropdown">
-                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" data-expanded="false">
-                              <i data-feather="more-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                              <a href="#!" class="dropdown-item">
-                                Action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Another action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Something else here
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <%= image_tag "svg/misc/key.svg", class:"img-fluid", width: "40px" %>
-                      </div>
-                      <div class="col ml-n2">
-                        <h6 class="text-sm mb-0">
-                          Backup Codes
-                        </h6>
-                      </div>
-                      <div class="col d-none d-md-block">
-                        <span class="text-muted">Added:</span> 2019-05-16 11:05:08
-                      </div>
-                      <div class="col-auto">
-                        <div class="actions text-right ml-3">
-                          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Invoice">
-                            <i data-feather="trash-2"></i>
-                          </a>
-                          <div class="dropdown">
-                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" data-expanded="false">
-                              <i data-feather="more-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                              <a href="#!" class="dropdown-item">
-                                Action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Another action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Something else here
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <%= image_tag "svg/misc/key.svg", class:"img-fluid", width: "40px" %>
-                      </div>
-                      <div class="col ml-n2">
-                        <h6 class="text-sm mb-0">
-                          Go Open Source
-                        </h6>
-                      </div>
-                      <div class="col d-none d-md-block">
-                        <span class="text-muted">Added:</span> 2019-05-16 11:05:08
-                      </div>
-                      <div class="col-auto">
-                        <div class="actions text-right ml-3">
-                          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Invoice">
-                            <i data-feather="trash-2"></i>
-                          </a>
-                          <div class="dropdown">
-                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" data-expanded="false">
-                              <i data-feather="more-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                              <a href="#!" class="dropdown-item">
-                                Action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Another action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Something else here
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-<div class="slice slice-sm bg-section-secondary">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-9">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="mb-5">
-              <!-- 2FA options -->
-              <div class="card">
-                <div class="card-header">
-                  <!-- Title -->
-                  <h5 class="h6 mb-0">Les meilleurs projets du mois</h5>
-                  <!-- Text -->
-                  <p class="text-sm mb-0">
-                    Keep your account secure by enabling two-factor authentication.
-                  </p>
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="mb-5">
+                    <div class="card">
+                      <div class="card-header">
+                        <!-- Title -->
+                        <h5 class="h6 mb-0">Les meilleurs projets du mois passé </h5>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        <% @last_month_projects&.take(15).each do |project| %>
+                          <li class="list-group-item">
+                            <div class="row align-items-center">
+                              <div class="col-auto">
+                                <%= link_to image_tag("https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80.png", :alt => "Image placeholder", :class => "avatar rounded-circle"), project_path(project) %>
+                              </div>
+                              <div class="col md-6">
+                                <h6 class="mb-0">
+                                  <%= link_to project.name, project_path(project)%>
+                                </h6>
+                                <p class="card-text small text-muted">
+                                  <%= project.short_description %>
+                                </p>
+                              </div>
+                              <h6 class="col-md-2 text-center">
+                                <%  project.languages.map do |language| %>
+                                  <p class="small d-inline"><%= image_tag language.picture_url, style: "width: 25px; position: relative; top: -2px", class: "mr-1"%></p>
+                                <% end %>
+                              </h6>
+                              <div class="col-auto">
+                                <div class="actions ml-3">
+                                  <h6 class="action-item mr-2">
+                                    <%= link_to project_path(project), class: "badge badge-light badge-pill" do %>
+                                      <p class="d-inline mr-2">Voir le projet</p>
+                                      <i class="fe fe-eye"></i>
+                                    <% end %>
+                                  </h6>
+                                </div>
+                              </div>
+                              <div class="col-md-2">
+                                <div class="actions text-center ml-3">
+                                  <h6 class="action-item mr-2">
+                                    <%= link_to project_path(project) do %>
+                                      <%= project.project_upvotes_count %>
+                                      votes <i class="fe fe-arrow-up ml-1"></i>
+                                    <% end %>
+                                  </h6>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <%= image_tag "svg/misc/google-auth.svg", class:"img-fluid", width: "40px" %>
-                      </div>
-                      <div class="col ml-n2">
-                        <h6 class="text-sm mb-0">
-                          Google Auth
-                        </h6>
-                        <p class="card-text small text-muted">
-                          iPhone
-                        </p>
-                      </div>
-                      <div class="col-md d-none d-md-block">
-                        <span class="text-muted">Added:</span> 2019-05-16 11:05:08
-                      </div>
-                      <div class="col-auto">
-                        <div class="actions text-right ml-3">
-                          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Invoice">
-                            <i data-feather="trash-2"></i>
-                          </a>
-                          <div class="dropdown">
-                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" data-expanded="false">
-                              <i data-feather="more-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                              <a href="#!" class="dropdown-item">
-                                Action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Another action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Something else here
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <%= image_tag "svg/misc/key.svg", class:"img-fluid", width: "40px" %>
-                      </div>
-                      <div class="col ml-n2">
-                        <h6 class="text-sm mb-0">
-                          Backup Codes
-                        </h6>
-                      </div>
-                      <div class="col d-none d-md-block">
-                        <span class="text-muted">Added:</span> 2019-05-16 11:05:08
-                      </div>
-                      <div class="col-auto">
-                        <div class="actions text-right ml-3">
-                          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Invoice">
-                            <i data-feather="trash-2"></i>
-                          </a>
-                          <div class="dropdown">
-                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" data-expanded="false">
-                              <i data-feather="more-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                              <a href="#!" class="dropdown-item">
-                                Action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Another action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Something else here
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <%= image_tag "svg/misc/key.svg", class:"img-fluid", width: "40px" %>
-                      </div>
-                      <div class="col ml-n2">
-                        <h6 class="text-sm mb-0">
-                          Go Open Source
-                        </h6>
-                      </div>
-                      <div class="col d-none d-md-block">
-                        <span class="text-muted">Added:</span> 2019-05-16 11:05:08
-                      </div>
-                      <div class="col-auto">
-                        <div class="actions text-right ml-3">
-                          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Invoice">
-                            <i data-feather="trash-2"></i>
-                          </a>
-                          <div class="dropdown">
-                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" data-expanded="false">
-                              <i data-feather="more-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                              <a href="#!" class="dropdown-item">
-                                Action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Another action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Something else here
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-<div class="slice slice-sm bg-section-secondary">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-9">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="mb-5">
-              <!-- 2FA options -->
-              <div class="card">
-                <div class="card-header">
-                  <!-- Title -->
-                  <h5 class="h6 mb-0">Les meilleurs projets depuis le début</h5>
-                  <!-- Text -->
-                  <p class="text-sm mb-0">
-                    Keep your account secure by enabling two-factor authentication.
-                  </p>
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="mb-5">
+                    <div class="card">
+                      <div class="card-header">
+                        <!-- Title -->
+                        <h5 class="h6 mb-0">Les meilleurs projets « all-time »</h5>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                        <% @projects&.take(15).each do |project| %>
+                          <li class="list-group-item">
+                            <div class="row align-items-center">
+                              <div class="col-auto">
+                                <%= link_to image_tag("https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80.png", :alt => "Image placeholder", :class => "avatar rounded-circle"), project_path(project) %>
+                              </div>
+                              <div class="col md-6">
+                                <h6 class="mb-0">
+                                  <%= link_to project.name, project_path(project)%>
+                                </h6>
+                                <p class="card-text small text-muted">
+                                  <%= project.short_description %>
+                                </p>
+                              </div>
+                              <h6 class="col-md-2 text-center">
+                                <%  project.languages.map do |language| %>
+                                  <p class="small d-inline"><%= image_tag language.picture_url, style: "width: 25px; position: relative; top: -2px", class: "mr-1"%></p>
+                                <% end %>
+                              </h6>
+                              <div class="col-auto">
+                                <div class="actions ml-3">
+                                  <h6 class="action-item mr-2">
+                                    <%= link_to project_path(project), class: "badge badge-light badge-pill" do %>
+                                      <p class="d-inline mr-2">Voir le projet</p>
+                                      <i class="fe fe-eye"></i>
+                                    <% end %>
+                                  </h6>
+                                </div>
+                              </div>
+                              <div class="col-md-2">
+                                <div class="actions text-center ml-3">
+                                  <h6 class="action-item mr-2">
+                                    <%= link_to project_path(project) do %>
+                                      <%= project.project_upvotes_count %>
+                                      votes <i class="fe fe-arrow-up ml-1"></i>
+                                    <% end %>
+                                  </h6>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <%= image_tag "svg/misc/google-auth.svg", class:"img-fluid", width: "40px" %>
-                      </div>
-                      <div class="col ml-n2">
-                        <h6 class="text-sm mb-0">
-                          Google Auth
-                        </h6>
-                        <p class="card-text small text-muted">
-                          iPhone
-                        </p>
-                      </div>
-                      <div class="col-md d-none d-md-block">
-                        <span class="text-muted">Added:</span> 2019-05-16 11:05:08
-                      </div>
-                      <div class="col-auto">
-                        <div class="actions text-right ml-3">
-                          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Invoice">
-                            <i data-feather="trash-2"></i>
-                          </a>
-                          <div class="dropdown">
-                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" data-expanded="false">
-                              <i data-feather="more-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                              <a href="#!" class="dropdown-item">
-                                Action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Another action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Something else here
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <%= image_tag "svg/misc/key.svg", class:"img-fluid", width: "40px" %>
-                      </div>
-                      <div class="col ml-n2">
-                        <h6 class="text-sm mb-0">
-                          Backup Codes
-                        </h6>
-                      </div>
-                      <div class="col d-none d-md-block">
-                        <span class="text-muted">Added:</span> 2019-05-16 11:05:08
-                      </div>
-                      <div class="col-auto">
-                        <div class="actions text-right ml-3">
-                          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Invoice">
-                            <i data-feather="trash-2"></i>
-                          </a>
-                          <div class="dropdown">
-                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" data-expanded="false">
-                              <i data-feather="more-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                              <a href="#!" class="dropdown-item">
-                                Action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Another action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Something else here
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="list-group-item">
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <%= image_tag "svg/misc/key.svg", class:"img-fluid", width: "40px" %>
-                      </div>
-                      <div class="col ml-n2">
-                        <h6 class="text-sm mb-0">
-                          Go Open Source
-                        </h6>
-                      </div>
-                      <div class="col d-none d-md-block">
-                        <span class="text-muted">Added:</span> 2019-05-16 11:05:08
-                      </div>
-                      <div class="col-auto">
-                        <div class="actions text-right ml-3">
-                          <a href="#" class="action-item mr-2" data-toggle="tooltip" title="Invoice">
-                            <i data-feather="trash-2"></i>
-                          </a>
-                          <div class="dropdown">
-                            <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" data-expanded="false">
-                              <i data-feather="more-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                              <a href="#!" class="dropdown-item">
-                                Action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Another action
-                              </a>
-                              <a href="#!" class="dropdown-item">
-                                Something else here
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
+      <aside class="col-lg-3">
+        <div class="card d-none d-md-block col-lg-12 ml-3 pb-3" style="height: fit-content;">
+          <div class="card-header">
+            <!-- Title -->
+            <h5 class="h6 mb-0">Les derniers dons</h5>
+          </div>
+          <div class="container-fluid mt-5">
+            <div class="col-lg-12 row">
+              <ul class="list-group list-group-flush">
+                <% @donations.each do |donation| %>
+                  <li class="list-group-item">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <%= link_to image_tag("https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80.png", :alt => "Image placeholder", :class => "avatar rounded-circle"), project_path(donation.project) %>
+                      </div>
+                      <div class="col md-6">
+                        <h6 class="mb-0">
+                          <p class="text-sm d-inline">Le projet</p>
+                          <%= link_to project_path(donation.project),class: "text-sm" do %>
+                            <%= donation.project.name %>
+                          <% end%>
+                          <p class="text-sm d-inline">a recu <span class="text-danger"><%= donation.amount %> €</span> de la part de <%= donation.user.first_name %></p>
+                          <i class="fe fe-rocket text-warning ml-2 animated fadeInUp ft-1-3"></i>
+                        </h6>
+                      </div>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card d-none d-md-inline-block col-lg-12 ml-3 pb-3" style="height: fit-content;">
+          <div class="card-header">
+            <!-- Title -->
+            <h5 class="h6 mb-0">Choisissez les projets à soutenir en séléctionnant votre language préféré</h5>
+          </div>
+          <div class="container-fluid mt-5">
+            <div class="col-lg-12 row">
+              <% @languages.each do |language| %>
+                <div class="d-block ">
+                  <%= link_to language_path(language) do %>
+                    <%= image_tag language.picture_url, style: "width: 55px" %>
+                  <% end  %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="card d-none d-md-inline-block col-lg-12 ml-3 pb-3" style="height: fit-content;">
+          <div class="card-header">
+            <!-- Title -->
+            <h5 class="h6 mb-0">Choisissez les projets à soutenir en séléctionnant votre catégorie préféré</h5>
+          </div>
+          <div class="container-fluid mt-5">
+            <div class="col-lg-12 row">
+              <% @categories.each do |category| %>
+                <div class="d-block m-1">
+                  <%= link_to category_path(category), class: "btn btn-sm btn-light" do %>
+                    <%= category.name %>
+                  <% end  %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
 </div>

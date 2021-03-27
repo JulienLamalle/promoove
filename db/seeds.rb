@@ -40,7 +40,7 @@ category = ["Intelligence Artificielle", "BTP", "Santé", "FinTech", "Sport", "E
 languages = ["Python", "Javascript", "Ruby", "Php", "HTML", "C++", "Java"]
 languages_pictures = ["python.svg", "javascript.svg", "ruby.svg" , "php.svg" , "html.svg", "c-plus-plus.svg", "java.svg"]
 picture_url = ["adobe-id.svg" , "gmail.svg", "paypal.svg", "ubuntu.svg", "sketch.svg", "play-store.svg", "outlook.svg", "icloud.svg"]
-
+roles = ["Créateur", "Co-créateur", "Collaborateur"]
 # Users
 10.times do
     user = User.create(
@@ -62,6 +62,13 @@ picture_url = ["adobe-id.svg" , "gmail.svg", "paypal.svg", "ubuntu.svg", "sketch
     puts "seeding user #{user.first_name}"
 end
 
+x = 0
+3.times do
+    role = Role.create(name: roles[x])
+    x += 1
+    puts "seeding role #{role.name}"
+end
+
 # Projects
 25.times do
     project = Project.create(
@@ -74,17 +81,17 @@ end
         daily_time_spent_on_project_per_developper: Faker::Number.number(digits: 1),
         is_complete: Faker::Boolean.boolean,
         license: Faker::Code.rut,
-        is_validated: Faker::Boolean.boolean
+        is_validated: true
     )
     project.update(link_of_github: "github.io/#{project.name}")
+    Collaboration.create(
+        user: User.all.sample, 
+        project: Project.last,
+        role: Role.first
+    )
     puts "seeding project #{project.name}"
 end
 
-# Roles
-10.times do
-    role = Role.create(name: Faker::Job.seniority)
-    puts "seeding role #{role.name}"
-end
 
 # Collaborations
 20.times do
@@ -157,12 +164,14 @@ languages.size.times do
 end
 puts "languages"
 
+j=0
 #Project Language
-10.times do
+30.times do
     project_language = ProjectLanguage.create(
-        project: Project.all.sample,
+        project: Project.all[j],
         language: Language.all.sample
         )
+        j += 1
 end
 puts "project languages"
 
