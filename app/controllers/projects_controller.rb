@@ -2,7 +2,10 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:edit, :update]
 
   def index
-    @projects = Project.all
+    @last_week_projects = Project.includes(:project_languages, :languages).created_in(1.week.ago.to_date, Date.tomorrow.to_date).validated.sorted
+    @last_month_projects = Project.created_in(1.month.ago.to_date, Date.tomorrow.to_date).validated.sorted
+    @projects = Project.all.sorted.validated
+    @donations = Donation.includes(:project, :user).all.order(created_at: :desc).take(10)
   end
 
   def show

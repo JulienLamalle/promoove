@@ -88,9 +88,9 @@
 </section>
 
 <div class="slice slice-sm bg-section-secondary">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-9">
+  <div class="container-fluid mt-5">
+    <div class="row justify-content-center row-grid">
+      <div class="col-lg-7">
         <div class="row">
           <div class="col-lg-12">
             <div class="mb-5">
@@ -101,44 +101,80 @@
                   <h5 class="h6 mb-0">Les meilleurs projets de la semaine</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <% if @projects.length > 0 %>
-                    <% @projects.sort_by{ |project| -project.project_upvotes.size }.each do |project| %>
-                      <% if (Time.now.day - project.created_at.day) < 6 %>
-                        <li class="list-group-item">
-                          <div class="row align-items-center">
-                            <div class="col-auto">
-                              <%= link_to image_tag("https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80.png", :alt => "Image placeholder", :class => "avatar rounded-circle"), project_path(project) %>
-                            </div>
-                            <div class="col ml-n2">
-                              <h6 class="text-sm mb-0">
-                                <%= link_to project.name, project_path(project)%>
-                              </h6>
-                              <p class="card-text small text-muted">
-                                <%= project.short_description %>
-                              </p>
-                            </div>
-                            <h1 class="col-md d-none d-md-block action-item mr-1">
-                              <%= project.number_of_developpers_on_project %>
-                              développeurs, créé le
-                              <%= project.created_at.strftime('%d-%m-%Y')  %>
-                            </h1>
-                            <div class="col-auto">
-                              <div class="actions text-right ml-3">
-                                <h1 class="action-item mr-2">
-                                  <%= project.project_upvotes.size %>
-                                  votes
-                                </h1>
-                              </div>
-                            </div>
+                  <% @last_week_projects&.take(15).each do |project| %>
+                    <li class="list-group-item">
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          <%= link_to image_tag("https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80.png", :alt => "Image placeholder", :class => "avatar rounded-circle"), project_path(project) %>
+                        </div>
+                        <div class="col md-6">
+                          <h6 class="mb-0">
+                            <%= link_to project.name, project_path(project)%>
+                          </h6>
+                          <p class="card-text small text-muted">
+                            <%= project.short_description %>
+                          </p>
+                        </div>
+                        <h6 class="col-md-2 text-center">
+                          <%  project.languages.map do |language| %>
+                            <p class="small d-inline"><%= image_tag language.picture_url, style: "width: 25px; position: relative; top: -2px", class: "mr-1"%></p>
+                          <% end %>
+                        </h6>
+                        <div class="col-auto">
+                          <div class="actions ml-3">
+                            <h6 class="action-item mr-2">
+                            <%= link_to project_path(project), class: "badge badge-light badge-pill" do %>
+                              <p class="d-inline mr-2">Voir le projet</p><i class="fe fe-eye"></i>
+                            <% end %>
+                            </h6>
                           </div>
-                        </li>
-                      <% end %>
-                    <% end %>
+                        </div>
+                        <div class="col-md-2">
+                          <div class="actions text-center ml-3">
+                            <h6 class="action-item mr-2">
+                              <%= link_to project_path(project) do %>
+                                <%= project.project_upvotes_count %>
+                                  votes <i class="fe fe-arrow-up ml-1"></i>
+                              <% end %>
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
                   <% end %>
                 </ul>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="card d-none d-md-block col-lg-3 ml-5">
+        <div class="card-header">
+          <!-- Title -->
+          <h5 class="h6 mb-0">Les derniers dons</h5>
+        </div>
+        <div class="container-fluid mt-5">
+          <div class="col-lg-12 row">
+            <ul class="list-group list-group-flush">
+              <% @donations.each do |donation| %>
+                <li class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-auto">
+                      <%= link_to image_tag("https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80.png", :alt => "Image placeholder", :class => "avatar rounded-circle"), project_path(donation.project) %>
+                    </div>
+                    <div class="col md-6">
+                      <h6 class="mb-0">
+                        <p class="text-sm d-inline">Le projet</p>
+                        <%= link_to project_path(donation.project),class: "text-sm" do %>
+                          <%= donation.project.name %> 
+                        <% end%>
+                        <p class="text-sm d-inline">a recu <span class="text-danger"><%= donation.amount %> €</span> de la part de <%= donation.user.first_name %></p> <i class="fe fe-rocket text-warning ml-2 animated fadeInUp ft-1-3"></i>
+                      </h6>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
         </div>
       </div>
     </div>
@@ -148,7 +184,7 @@
 <div class="slice slice-sm bg-section-secondary">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-9">
+      <div class="col-lg-12">
         <div class="row">
           <div class="col-lg-12">
             <div class="mb-5">
@@ -159,39 +195,35 @@
                   <h5 class="h6 mb-0">Les meilleurs projets du mois</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <% if @projects.length > 0 %>
-                    <% @projects.sort_by{ |project| -project.project_upvotes.size }.each do |project| %>
-                      <% if (Time.now.day - project.created_at.day) < 30 %>
-                        <li class="list-group-item">
-                          <div class="row align-items-center">
-                            <div class="col-auto">
-                              <%= link_to image_tag("https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80.png", :alt => "Image placeholder", :class => "avatar rounded-circle"), project_path(project) %>
-                            </div>
-                            <div class="col ml-n2">
-                              <h6 class="text-sm mb-0">
-                                <%= link_to project.name, project_path(project)%>
-                              </h6>
-                              <p class="card-text small text-muted">
-                                <%= project.short_description %>
-                              </p>
-                            </div>
-                            <h1 class="col-md d-none d-md-block action-item mr-1">
-                              <%= project.number_of_developpers_on_project %>
-                              développeurs, créé le
-                              <%= project.created_at.strftime('%d-%m-%Y')  %>
+                  <% @last_month_projects&.take(15).each do |project| %>
+                    <li class="list-group-item">
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          <%= link_to image_tag("https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80.png", :alt => "Image placeholder", :class => "avatar rounded-circle"), project_path(project) %>
+                        </div>
+                        <div class="col ml-n2">
+                          <h6 class="text-sm mb-0">
+                            <%= link_to project.name, project_path(project)%>
+                          </h6>
+                          <p class="card-text small text-muted">
+                            <%= project.short_description %>
+                          </p>
+                        </div>
+                        <h1 class="col-md d-none d-md-block action-item mr-1">
+                          <%= project.number_of_developpers_on_project %>
+                          développeurs, créé le
+                          <%= project.created_at.strftime('%d-%m-%Y')  %>
+                        </h1>
+                        <div class="col-auto">
+                          <div class="actions text-right ml-3">
+                            <h1 class="action-item mr-2">
+                              <%= project.project_upvotes_count %>
+                              votes
                             </h1>
-                            <div class="col-auto">
-                              <div class="actions text-right ml-3">
-                                <h1 class="action-item mr-2">
-                                  <%= project.project_upvotes.size %>
-                                  votes
-                                </h1>
-                              </div>
-                            </div>
                           </div>
-                        </li>
-                      <% end %>
-                    <% end %>
+                        </div>
+                      </div>
+                    </li>
                   <% end %>
                 </ul>
               </div>
@@ -217,37 +249,35 @@
                   <h5 class="h6 mb-0">Les meilleurs projets depuis le début</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <% if @projects.length > 0 %>
-                    <% @projects.sort_by{ |project| -project.project_upvotes.size }.each do |project| %>
-                      <li class="list-group-item">
-                        <div class="row align-items-center">
-                          <div class="col-auto">
-                            <%= link_to image_tag("https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80.png", :alt => "Image placeholder", :class => "avatar rounded-circle"), project_path(project) %>
-                          </div>
-                          <div class="col ml-n2">
-                            <h6 class="text-sm mb-0">
-                              <%= link_to project.name, project_path(project)%>
-                            </h6>
-                            <p class="card-text small text-muted">
-                              <%= project.short_description %>
-                            </p>
-                          </div>
-                          <h1 class="col-md d-none d-md-block action-item mr-1">
-                            <%= project.number_of_developpers_on_project %>
-                            développeurs, créé le
-                            <%= project.created_at.strftime('%d-%m-%Y')  %>
-                          </h1>
-                          <div class="col-auto">
-                            <div class="actions text-right ml-3">
-                              <h1 class="action-item mr-2">
-                                <%= project.project_upvotes.size %>
-                                votes
-                              </h1>
-                            </div>
+                  <% @projects.take(15).each do |project| %>
+                    <li class="list-group-item">
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          <%= link_to image_tag("https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80.png", :alt => "Image placeholder", :class => "avatar rounded-circle"), project_path(project) %>
+                        </div>
+                        <div class="col ml-n2">
+                          <h6 class="text-sm mb-0">
+                            <%= link_to project.name, project_path(project)%>
+                          </h6>
+                          <p class="card-text small text-muted">
+                            <%= project.short_description %>
+                          </p>
+                        </div>
+                        <h1 class="col-md d-none d-md-block action-item mr-1">
+                          <%= project.number_of_developpers_on_project %>
+                          développeurs, créé le
+                          <%= project.created_at.strftime('%d-%m-%Y')  %>
+                        </h1>
+                        <div class="col-auto">
+                          <div class="actions text-right ml-3">
+                            <h1 class="action-item mr-2">
+                              <%= project.project_upvotes_count %>
+                              votes
+                            </h1>
                           </div>
                         </div>
-                      </li>
-                    <% end %>
+                      </div>
+                    </li>
                   <% end %>
                 </ul>
               </div>

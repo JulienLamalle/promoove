@@ -74,7 +74,7 @@ end
         daily_time_spent_on_project_per_developper: Faker::Number.number(digits: 1),
         is_complete: Faker::Boolean.boolean,
         license: Faker::Code.rut,
-        is_validated: Faker::Boolean.boolean
+        is_validated: true
     )
     project.update(link_of_github: "github.io/#{project.name}")
     puts "seeding project #{project.name}"
@@ -157,12 +157,14 @@ languages.size.times do
 end
 puts "languages"
 
+j=0
 #Project Language
-10.times do
+30.times do
     project_language = ProjectLanguage.create(
-        project: Project.all.sample,
+        project: Project.all[j],
         language: Language.all.sample
         )
+        j += 1
 end
 puts "project languages"
 
