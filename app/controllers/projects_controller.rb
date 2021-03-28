@@ -23,15 +23,8 @@ class ProjectsController < ApplicationController
     @user = current_user
     @categories = Category.all
     @languages = Language.all
-  end
-
-  def create
-    @project = Project.new(project_params)
-    if @project.save
-      flash[:success] = "Projet créé, vous serez alerté lorsqu'il sera validé"
-    else
-      flash[:error] = @project.errors.messages
-    end
+    @media_type = MediaType.all
+    @media = Media.new
   end
 
   def edit
@@ -39,7 +32,11 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @media = Media.new(media_params)
     if @project.save
+      if @media.save
+        ProjecMedia.create(media_id: @media, project_id: @project)
+      end
       Collaboration.create(user_id: current_user.id, project_id: @project.id, role_id: Role.first)
       flash[:info] = "Votre projet a été créé et est visible uniquement par vous pour le moment, vous pouvez le déclarer comme complet en vous rendant dessus"
       redirect_to root_path

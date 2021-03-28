@@ -9,75 +9,87 @@
                         <p class="text-muted mb-0">Recevez des dons, gagnez de la visibilité et trouvez de l'aide sur Promoove.io</p>
                     </div>
                     <span class="clearfix"></span>
-                      <%= form_for(@project) do |f| %>
-                        <div class="form-group">
-                          <%= f.label "Nom de votre projet", class:"form-control-label" %>
-                            <div class="input-group">
-                              <%= f.text_field :name, class:"form-control", id:"name", placeholder:"Promoove.io" %>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <%= f.label "Décrivez votre projet en quelques mots", class:"form-control-label" %>
-                            <div class="input-group">
-                                <%= f.text_field :short_description, class:"form-control", id:"short_description", placeholder:"Promouvoir le monde de l'open source" %>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <%= f.label "Décrivez votre projet dans le détail", class:"form-control-label" %>
-                            <div class="input-group">
-                              <%= f.text_area :long_description, class:"form-control", id:"long_description", placeholder:"Promouvoir le monde de l'open source, ..." %>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <%= f.label "License", class:"form-control-label" %>
-                            <div class="input-group">
-                              <%= f.text_field :license, class:"form-control", id:"license", placeholder:"GNU General Public License, version 3" %>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <%= f.label "Github link", class:"form-control-label" %>
-                            <div class="input-group">
-                              <%= f.text_field :link_of_github, class:"form-control", id:"link_of_github", placeholder:"https://github.com/JulienLamalle/promoove" %>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <%= f.label "Objectif des dons (€/mois)", class:"form-control-label" %>
-                            <div class="input-group">
-                              <%= f.number_field :value_of_project, class:"form-control", id:"value_of_project", placeholder:"2000" %>
-                            </div>
-                        </div>
-                        <div class="list-group list-group-flush">
-                          <label class="form-control-label">Sélectionnez les langages principaux de votre projet</label>
-                            <li class="list-group-item">
-                              <div class="row mx-n2">
-                                <div class="col-12 col-lg-4 px-2">
-                                  <div class="form-group">
-                                    <select class="custom-select">
-                                      <% @languages.map do |language| %>
-                                        <option><%= language.name %></option>
-                                      <% end %>
-                                    </select>
-                                  </div>
+                    <%= form_for(@project) do |f| %>
+                      <div class="form-group">
+                        <%= f.label "Nom de votre projet", class:"form-control-label" %>
+                          <div class="input-group">
+                            <%= f.text_field :name, class:"form-control", id:"name", placeholder:"Promoove.io" %>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label "Décrivez votre projet en quelques mots", class:"form-control-label" %>
+                          <div class="input-group">
+                              <%= f.text_field :short_description, class:"form-control", id:"short_description", placeholder:"Promouvoir le monde de l'open source" %>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label "Décrivez votre projet dans le détail", class:"form-control-label" %>
+                          <div class="input-group">
+                            <%= f.text_area :long_description, class:"form-control", id:"long_description", placeholder:"Promouvoir le monde de l'open source, ..." %>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label "License", class:"form-control-label" %>
+                          <div class="input-group">
+                            <%= f.text_field :license, class:"form-control", id:"license", placeholder:"GNU General Public License, version 3" %>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label "Github link", class:"form-control-label" %>
+                          <div class="input-group">
+                            <%= f.text_field :link_of_github, class:"form-control", id:"link_of_github", placeholder:"https://github.com/JulienLamalle/promoove" %>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label "Objectif des dons (€/mois)", class:"form-control-label" %>
+                          <div class="input-group">
+                            <%= f.number_field :value_of_project, class:"form-control", id:"value_of_project", placeholder:"2000" %>
+                          </div>
+                      </div>
+                      <div class="list-group list-group-flush">
+                        <label class="form-control-label">Sélectionnez les langages principaux de votre projet</label>
+                          <li class="list-group-item">
+                            <div class="row mx-n2">
+                              <div class="col-12 col-lg-4 px-2">
+                                <div class="form-group">
+                                  <select class="custom-select">
+                                    <% @languages.map do |language| %>
+                                      <option><%= language.name %></option>
+                                    <% end %>
+                                  </select>
                                 </div>
                               </div>
-                            </li>
-                            <!--<%= f.collection_select :languages, @languages.order(:name), :id, :name, id:"languages" %>-->
-                          </div>
-                        </div>
-                        <div class="my-4">
-                            <div class="custom-control custom-checkbox mb-3">
-                                <input type="checkbox" class="custom-control-input" id="check-terms">
-                                <label class="custom-control-label" for="check-terms">I agree to the <a href="../../pages/utility/terms.html">terms and conditions</a></label>
                             </div>
+                          </li>
+                          <!--<%= f.collection_select :languages, @languages.order(:name), :id, :name, id:"languages" %>-->
                         </div>
-                        <div class="mt-4">
-                            <%= f.submit "Soumettre ce projet", class:"btn btn-block btn-primary" %>
+                      </div>
+                      <div class="form-group">
+                        <%= f.label "Ajoutez un lien vers une vidéo", class:"form-control-label" %>
+                          <div class="input-group">
+                            <%= f.text_field :video_link, class:"form-control", id:"video_link", placeholder:"https://www.youtube.com/..." %>
+                          </div>
+                      </div>
+                      <%= form_with model: @media, method: "post" do |m| %>
+                        <div class="form-group">
+                          <%= m.label "Ajoutez une image ou une vidéo", class:"form-control-label" %>
+                          <%= m.file_field :image, type:"file", name:"file-1[]", id:"file-1", class:"custom-input-file" %>
+                          <label for="file-1">
+                            <i class="fe fe-upload"></i>
+                            <span>Image.jpeg</span>
+                          </label>
                         </div>
                       <% end %>
-                    <!-- Links -->
-                    <div class="mt-4 text-center"><small>Already have an acocunt?</small>
-                        <a href="login-basic.html" class="small font-weight-bold">Sign in</a>
-                    </div>
+                      <div class="my-4">
+                          <div class="custom-control custom-checkbox mb-3">
+                              <input type="checkbox" class="custom-control-input" id="check-terms">
+                              <label class="custom-control-label" for="check-terms">I agree to the <a href="../../pages/utility/terms.html">terms and conditions</a></label>
+                          </div>
+                      </div>
+                      <div class="mt-4">
+                          <%= f.submit "Soumettre ce projet", class:"btn btn-block btn-primary" %>
+                      </div>
+                    <% end %>
                 </div>
             </div>
         </div>
