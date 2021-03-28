@@ -25,9 +25,9 @@
         </div>
         <!-- Dark mode -->
         <% if cookies[:theme] == "dark" %>
-          <%= link_to "🌞", root_path(theme: "light"), class: "switch-logo" %>
+          <%= link_to "🟡", root_path(theme: "light"), class: "switch-logo" %>
         <% else %>
-          <%= link_to "🌛", root_path(theme: "dark"), class: "switch-logo" %>
+          <%= link_to "⚫️", root_path(theme: "dark"), class: "switch-logo" %>
         <% end %>
         <!-- Main navigation -->
         <ul class="navbar-nav ml-lg-auto mr-3">

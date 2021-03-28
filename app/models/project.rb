@@ -22,6 +22,10 @@ class Project < ApplicationRecord
   validates :short_description, length: {maximum: 500, too_long: "La description courte doit comporter %{count} caractères maximum"}
   validates :link_of_github, presence: {message: "Le lien du dépôt du projet doit être renseigné"}
 
+  scope :created_in, lambda { |start_date, end_date| where('created_at >= ? AND created_at <= ?', start_date, end_date)}
+  scope :sorted, -> {order(project_upvotes_count: :desc)}
+  scope :validated, -> {where(is_validated: true)}
+
   private 
 
   def should_generate_new_friendly_id?
