@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       resources :users, except: [:show, :create]
       resources :donations, only: [:index]
     end
+    resource :media, only: [:new, :create, :destroy]
   end
   
 end

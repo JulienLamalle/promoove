@@ -70,7 +70,7 @@
                             <%= f.text_field :video_link, class:"form-control", id:"video_link", placeholder:"https://www.youtube.com/..." %>
                           </div>
                       </div>
-                      <%= form_with model: @media, method: "post" do |m| %>
+                      <%= form_with url: new_media_fr_path, remote: true do |m| %>
                         <div class="form-group">
                           <%= m.label "Ajoutez une image ou une vidéo", class:"form-control-label" %>
                           <%= m.file_field :image, type:"file", name:"file-1[]", id:"file-1", class:"custom-input-file" %>
@@ -78,6 +78,9 @@
                             <i class="fe fe-upload"></i>
                             <span>Image.jpeg</span>
                           </label>
+                        </div>
+                        <div class="mt-4">
+                          <%= m.submit "Ajouter cette image", class:"btn btn-block btn-secondary" %>
                         </div>
                       <% end %>
                       <div class="my-4">
