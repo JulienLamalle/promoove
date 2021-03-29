@@ -16,11 +16,20 @@
               <div>
                 <div class="tab-pane fade active show" role="tabpanel" aria-labelledby="description-tab">
                   <div class="d-flex">
-                    <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.qGsS32Tn5mqZx5fVIBxtSAAAAA%26pid%3DApi&f=1", class: "avatar avatar-lg mr-4" %>
-                    <h2 class="text-center text-md-left">
+                    <%= image_tag "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.qGsS32Tn5mqZx5fVIBxtSAAAAA%26pid%3DApi&f=1", class: "avatar avatar-lg mr-4 mt-3" %>
+                    <h2 class="text-md-left mt-4">
                       <%= @project.name %>
                     </h2>
+                    <div class="shadow-sm ml-auto">
+                      <div class="p-4 mx-2 text-sm-left">
+                        <h5 class="mb-0">
+                          <i class="fe fe-drop-up mr-1"></i>
+                          <span class="counter" data-from="0" data-to=<%= @project.project_upvotes_count %> data-speed="3000" data-refresh-interval="200"></span>
+                        </h5>
+                      </div>
+                    </div>      
                   </div>
+                  <% %>
                   <div class="d-flex flex-wrap mt-4">
                     <% @categories&.each do |category| %>
                       <%= link_to "#{category.name}", category_path(category), class: "badge badge-soft-primary badge-pill mx-2"%>
@@ -36,11 +45,12 @@
                     <p>
                       <%= @project.long_description %>
                     </p>
-                    <h4 class="mb-2">Languages</h4>
-                    <div class="d-flex flex-wrap my-3">
+                    <div class="d-flex flex-wrap mt-4">
                       <% @languages&.each do |language| %>
-                        <%= link_to "#{language.name}", language_path(language), class: "badge badge-soft-primary badge-pill mx-2"%>
-                      <% end%>
+                        <%= link_to language_path(language), class: "small d-inline", title: language.name do %>
+                          <%= image_tag language.picture_url, style: "width: 25px; position: relative; top: -2px", class: "mr-1"%>
+                        <% end %>
+                      <% end %>
                     </div>
                   </div>
                   <hr />
@@ -77,11 +87,8 @@
                     <i class="fe fe-heart"></i>
                 </span>
             </button>
-            <button type="button" class="btn btn-animated btn-soft-success btn-animated-y mx-3">
-              <span class="btn-inner--visible">Voter</span>
-                <span class="btn-inner--hidden">
-                    <i class="fe fe-arrow-up"></i>
-                </span>
+            <button type="button" class="btn btn-soft-success mx-3">
+              <i class="fe fe-drop-up"></i>
             </button>
           </div>
           

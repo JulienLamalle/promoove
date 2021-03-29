@@ -116,7 +116,9 @@
                           </div>
                           <h6 class="col-md-2 text-center">
                             <%  project.languages.map do |language| %>
-                              <p class="small d-inline"><%= image_tag language.picture_url, style: "width: 25px; position: relative; top: -2px", class: "mr-1"%></p>
+                              <p class="small d-inline">
+                                <%= image_tag language.picture_url, style: "width: 25px; position: relative; top: -2px", class: "mr-1"%>
+                              </p>
                             <% end %>
                           </h6>
                           <div class="col-auto">
