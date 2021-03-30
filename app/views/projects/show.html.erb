@@ -107,7 +107,7 @@
                         <%if collaborator.profile_picture.attached?%>
                           <%= image_tag collaborator.profile_picture, alt:"profile picture", class:"avatar rounded-circle" %>
                         <% else %>
-                          <%= image_tag "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" , alt:"profile picture", class:"avatar rounded-circle" %>
+                          <%= image_tag "https://www.flaticon.com/svg/vstatic/svg/3442/3442087.svg?token=exp=1617099360~hmac=9162ab297fb8e99726e17b95534cacbb" , alt:"profile picture", class:"avatar rounded-circle" %>
                         <% end%>
                       <% end %>
                     </div>
@@ -312,14 +312,18 @@
         <% @comments&.each do |comment| %>
           <% @comment = comment %>
           <div class="media media-comment my-4">
-            <%if comment.user.profile_picture.attached?%>
-              <%= image_tag comment.user.profile_picture, alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
-            <% else %>
-              <%= image_tag "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" , alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
-            <% end%>
+            <%= link_to user_path(comment.user) do%>
+              <%if comment.user.profile_picture.attached?%>
+                <%= image_tag comment.user.profile_picture, alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
+              <% else %>
+                <%= image_tag "https://www.flaticon.com/svg/vstatic/svg/3442/3442087.svg?token=exp=1617099360~hmac=9162ab297fb8e99726e17b95534cacbb" , alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
+              <% end%>
+            <% end %>
             <div class="media-body">
               <div class="media-comment-bubble left-top">
-                <h6 class="mt-0"><%= "#{comment.user.first_name && comment.user.first_name} #{comment.user.last_name && comment.user.last_name}" %></h6>
+                <%= link_to user_path(comment.user) do%>
+                  <h6 class="mt-0"><%= "#{comment.user.first_name && comment.user.first_name} #{comment.user.last_name && comment.user.last_name}" %></h6>
+                <% end %>
                 <p class="text-sm lh-160"><%= comment.content %></p>
                 <div class="icon-actions">
                   <%= render partial: "comment_upvotes/like_button" %>
@@ -336,14 +340,18 @@
           <div id=<%="answers-#{comment.id}"%> style="display:none">
             <% comment&.comment_answers.each do |answer| %>
               <div class="media media-comment ml-auto" style="width:95%">
-                <%if answer.user.profile_picture.attached?%>
-                  <%= image_tag answer.user.profile_picture, alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
-                <% else %>
-                  <%= image_tag "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" , alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
-                <% end%>                 
+                <%= link_to user_path(comment.user) do%>
+                  <% if answer.user.profile_picture.attached?%>
+                    <%= image_tag answer.user.profile_picture, alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
+                  <% else %>
+                    <%= image_tag "https://www.flaticon.com/svg/vstatic/svg/3442/3442087.svg?token=exp=1617099360~hmac=9162ab297fb8e99726e17b95534cacbb" , alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
+                  <% end%>  
+                <% end %>               
                 <div class="media-body">
                   <div class="media-comment-bubble left-top">
-                    <h6 class="mt-0"><%= "#{answer.user.first_name && answer.user.first_name} #{answer.user.last_name && answer.user.last_name}" %></h6>
+                    <%= link_to user_path(comment.user) do%>
+                      <h6 class="mt-0"><%= "#{answer.user.first_name && answer.user.first_name} #{answer.user.last_name && answer.user.last_name}" %></h6>
+                    <% end %>
                     <p class="text-sm lh-160"><%= answer.content %></p>
                     <div class="icon-actions">
                       <%= link_to "#", class: "love active" do %>
@@ -360,11 +368,13 @@
             <div>
               <% if current_user %>
                 <div class="media media-comment align-items-center mt-4 ml-auto" style="width:95%">
-                  <%if current_user.profile_picture.attached?%>
-                    <%= image_tag current_user.profile_picture, alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
-                  <% else %>
-                    <%= image_tag "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" , alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
-                  <% end%>                  
+                  <%= link_to user_path(comment.user) do%>
+                    <%if current_user.profile_picture.attached?%>
+                      <%= image_tag current_user.profile_picture, alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
+                    <% else %>
+                      <%= image_tag "https://www.flaticon.com/svg/vstatic/svg/3442/3442087.svg?token=exp=1617099360~hmac=9162ab297fb8e99726e17b95534cacbb" , alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
+                    <% end%> 
+                  <% end %>                 
                   <div class="media-body">
                     <%= render partial: "comment_answers/form" %>
                   </div>
@@ -377,11 +387,13 @@
         <% if current_user %>
           <hr class="divider divider-fade">
           <div class="media media-comment align-items-center mt-3">
-            <%if current_user.profile_picture.attached?%>
-              <%= image_tag current_user.profile_picture, alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
-            <% else %>
-              <%= image_tag "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" , alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
-            <% end%>
+            <%= link_to user_path(comment.user) do%>
+              <%if current_user.profile_picture.attached?%>
+                <%= image_tag current_user.profile_picture, alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
+              <% else %>
+                <%= image_tag "https://www.flaticon.com/svg/vstatic/svg/3442/3442087.svg?token=exp=1617099360~hmac=9162ab297fb8e99726e17b95534cacbb" , alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
+              <% end%>
+            <% end %>
             <div class="media-body">
               <%= render partial: "comments/form" %>
             </div>
