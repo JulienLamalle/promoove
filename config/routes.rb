@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show]
     resources :comments
     resources :comment_answers
+    resources :comment_upvotes
     resources :about, only: [:index]
     resources :languages, only: [:index, :show]
     resources :admin, only: [:index]
