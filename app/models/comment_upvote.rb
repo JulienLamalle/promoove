@@ -4,5 +4,5 @@ class CommentUpvote < ApplicationRecord
 
   validates :user, presence: true
   validates :comment, presence: true
-  validates :user, uniqueness: true
+  validates :user, uniqueness: { scope: :comment}
 end

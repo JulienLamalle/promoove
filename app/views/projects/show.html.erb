@@ -387,7 +387,7 @@
         <% if current_user %>
           <hr class="divider divider-fade">
           <div class="media media-comment align-items-center mt-3">
-            <%= link_to user_path(comment.user) do%>
+            <%= link_to user_path (current_user) do%>
               <%if current_user.profile_picture.attached?%>
                 <%= image_tag current_user.profile_picture, alt:"profile picture", class:"avatar avatar-lg rounded-circle mr-3" %>
               <% else %>
