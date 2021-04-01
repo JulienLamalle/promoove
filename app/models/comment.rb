@@ -6,4 +6,12 @@ class Comment < ApplicationRecord
 
   validates :user, presence: true
   validates :project, presence: true
+
+  def is_liked
+    if self.comment_upvotes.find_by(user: User.last).present?
+      return true
+    else 
+      return false
+    end
+  end
 end
